@@ -425,6 +425,316 @@
             </u-form-item>
           </view>
 
+          <view v-if="uFormTitle.cxlxid=='A0'">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+              <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="换购价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+              <u-input placeholder="请输入换购价格" type="text"  v-model="uFormModel.cxjg"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="最高换购数量" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+              <u-input placeholder="请输入最高换购数量" type="text"  v-model="uFormModel.slsx"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="换购数量" :labelWidth="74" prop="zssl" v-show="doingindex>=1">
+              <u-input placeholder="请输入换购数量" type="text"  v-model="uFormModel.zssl"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='C1'">
+            <u-form-item label="执行扣率" :labelWidth="74" prop="cxzkl" v-show="doingindex>=1">
+              <u-input placeholder="请输入执行扣率" type="text"  v-model="uFormModel.cxzkl"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='A1'">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+              <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="执行折扣" :labelWidth="74" prop="cxzkl" v-show="doingindex>=1">
+              <u-input placeholder="请输入执行折扣" type="text"  v-model="uFormModel.cxzkl"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='A2'">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+              <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="优惠金额" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+              <u-input placeholder="请输入优惠金额" type="text"  v-model="uFormModel.cxjg"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="是否开启金额倍数累加选项" :labelWidth="74" prop="issum" v-show="doingindex>=1">
+              <view>
+                <switch  color="#FFCC33" style="transform:scale(0.7)" @change="isissum"/>
+              </view>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='A3'">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+              <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="抵挡金额" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+              <u-input placeholder="请输入抵挡金额" type="text"  v-model="uFormModel.cxjg"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="上限金额" :labelWidth="74" prop="sxje" v-show="doingindex>=1">
+              <u-input placeholder="请输入上限金额" type="text"  v-model="uFormModel.sxje"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='A4'">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+              <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="购物券面值" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+              <u-input placeholder="请输入购物券面值" type="text"  v-model="uFormModel.cxjg"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="购物券ID" :labelWidth="74" prop="gwjid" v-show="doingindex>=1">
+              <u-input placeholder="请输入购物券ID" type="text"  v-model="uFormModel.gwjid"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="返券数量" :labelWidth="74" prop="zssl" v-show="doingindex>=1">
+              <u-input placeholder="请输入返券数量" type="text"  v-model="uFormModel.zssl"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="是否开启金额倍数累加选项" :labelWidth="74" prop="issum" v-show="doingindex>=1">
+              <view>
+                <switch  color="#FFCC33" style="transform:scale(0.7)" @change="isissum"/>
+              </view>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='A5'">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+              <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="数量上限" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+              <u-input placeholder="请输入数量上限" type="text"  v-model="uFormModel.slsx"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="优惠数量" :labelWidth="74" prop="zssl" v-show="doingindex>=1">
+              <u-input placeholder="请输入优惠数量" type="text"  v-model="uFormModel.zssl"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='D0'">
+            <u-form-item label="换购数量" :labelWidth="74" prop="zssl" v-show="doingindex>=1">
+              <u-input placeholder="请输入换购数量" type="text"  v-model="uFormModel.zssl"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="换购价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+              <u-input placeholder="请输入换购价格" type="text"  v-model="uFormModel.cxjg"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="最高换购量" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+              <u-input placeholder="请输入最高换购量" type="text"  v-model="uFormModel.slsx"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='22'">
+            <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+              <u-input placeholder="请输入促销价格" type="text"  v-model="uFormModel.cxjg"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="限购次数/量" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+              <u-input placeholder="请输入限购次数/量" type="text"  v-model="uFormModel.slsx"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="是否开启按次控制" :labelWidth="74" prop="issum" v-show="doingindex>=1">
+              <view>
+                <switch  color="#FFCC33" style="transform:scale(0.7)" @change="isissum"/>
+              </view>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='23'">
+            <u-form-item label="领赠价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+              <u-input placeholder="请输入领赠价格" type="text"  v-model="uFormModel.cxjg"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="限领数量" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+              <u-input placeholder="请输入限领数量" type="text"  v-model="uFormModel.slsx"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="是否开启限生日月" :labelWidth="74" prop="isbirth" v-show="doingindex>=1">
+              <view>
+                <switch  color="#FFCC33" style="transform:scale(0.7)" @change="isisbirth"/>
+              </view>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='24'">
+            <u-form-item label="生日特价" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+              <u-input placeholder="请输入生日特价" type="text"  v-model="uFormModel.cxjg"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="最高限量" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+              <u-input placeholder="请输入最高限量" type="text"  v-model="uFormModel.slsx"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+            <u-form-item label="最低限量" :labelWidth="74" prop="slxx" v-show="doingindex>=1">
+              <u-input placeholder="请输入最低限量" type="text"  v-model="uFormModel.slxx"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+          </view>
+
+          <view v-if="uFormTitle.cxlxid=='25'">
+            <u-form-item label="促销折扣率" :labelWidth="74" prop="cxzkl" v-show="doingindex>=1">
+              <u-input placeholder="请输入促销折扣率" type="text"  v-model="uFormModel.cxzkl"
+              >
+              </u-input>
+              <uni-icons custom-prefix="iconfont" type="icon-yuyin"
+                         :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
+              <text class="inp-right-text" v-else></text>
+            </u-form-item>
+
+          </view>
+
 
 
 
@@ -936,7 +1246,7 @@ export default {
     if(this.uFormTitle.cxlxid=='A2'){
       this.uFormModel.mmje=''
       this.uFormModel.cxjg=''
-      this.uFormModel.bssum=''
+      this.uFormModel.issum=false
 
     }
     if(this.uFormTitle.cxlxid=='A3'){
@@ -949,7 +1259,7 @@ export default {
       this.uFormModel.mmje=''
       this.uFormModel.cxjg=''
       this.uFormModel.gwjid=''
-      this.uFormModel.bssum=''
+      this.uFormModel.issum=false
       this.uFormModel.zssl=''
 
     }
@@ -962,6 +1272,24 @@ export default {
       this.uFormModel.zssl=''
       this.uFormModel.cxjg=''
       this.uFormModel.slsx=''
+    }
+    if(this.uFormTitle.cxlxid=='22'){
+      this.uFormModel.issun=false
+      this.uFormModel.cxjg=''
+      this.uFormModel.slsx=''
+    }
+    if(this.uFormTitle.cxlxid=='23'){
+      this.uFormModel.isbirth=false
+      this.uFormModel.cxjg=''
+      this.uFormModel.slsx=''
+    }
+    if(this.uFormTitle.cxlxid=='24'){
+      this.uFormModel.slxx=''
+      this.uFormModel.cxjg=''
+      this.uFormModel.slsx=''
+    }
+    if(this.uFormTitle.cxlxid=='25'){
+      this.uFormModel.cxzkl=''
     }
 
 console.log('当前商品需要的信息',this.uFormModel)
@@ -982,6 +1310,14 @@ console.log('当前商品需要的信息',this.uFormModel)
     //特供扣点
     ischeckdm(e){
       this.uFormModel.checkdm=e.detail.value
+    },
+    //是否开启金额倍数累加选项
+    isissum(e){
+      this.uFormModel.issum=e.detail.value
+    },
+    //是否开启限生日月
+    isisbirth(e){
+      this.uFormModel.isbirth=e.detail.value
     },
     //库存补差
     ischeckcbj(e){
@@ -1624,7 +1960,7 @@ console.log('当前商品需要的信息',this.uFormModel)
           zssl:this.uFormModel.zssl,
           gwjid:this.uFormModel.gwjid,
           sxje:this.uFormModel.sxje,
-          bssum:this.uFormModel.bssum,
+          issum:this.uFormModel.issum,
           cxzkl:this.uFormModel.cxzkl,
           xspsl:this.uFormModel.xspsl,
 
