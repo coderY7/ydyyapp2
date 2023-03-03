@@ -280,6 +280,9 @@ export default {
       jglxdata:[],
     }
   },
+  created(){
+    console.log('created',this.editForm)
+  },
   mounted() {
     console.log("edit tableData",this.tableData)
     console.log("edit this.title",this.title)
@@ -388,7 +391,10 @@ export default {
     formMoreChange(item){
       this.editForm.jgcxbz = item
     },
+   //获取当前对应数据
+    currentdata(){
 
+    },
     // 编辑商品
     toeditDetail(row, index) {
       this.serchGoods(row.spbm,this.editForm)
@@ -426,6 +432,10 @@ export default {
       this.SjhtChange()
       console.log("编辑商品 row",row)
       this.zklx()
+
+
+
+
     },
     cancelDetail() {
       this.editForm.spbm= ""

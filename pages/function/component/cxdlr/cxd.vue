@@ -825,7 +825,7 @@
               v-show="ifpage&&contentShow" @tap="save">
     </u-button>
 
-    <view class="box-content" v-show="!ifpage">
+    <view class="box-content" v-if="!ifpage">
       <edit :title="editTitleObj" :tableData="tableData" :state="state" @editSave="editSave" ref="editDetail" @delgoods="delgoods">
       </edit>
     </view>
@@ -1125,11 +1125,7 @@ export default {
       }.bind(this)
     });
     if(option.state=='edit'){
-      this.uFormTitle.djbh = option.djbh
-      this.uFormTitle.cxfs=option.cxfs
-      this.uFormTitle.cxlxid=this.uFormTitle.cxfs.split(' ')[0]
-      console.log('旧单子信息',this.uFormTitle);
-      this.state = option.state
+
     }
 
     let sjVal = ""
@@ -1148,6 +1144,13 @@ export default {
       sjVal = option.sjbh
       this.getList()
       this.editTitleObj = option
+      console.log(option)
+      this.editTitleObj.cxfs=option.cxfs
+      this.uFormTitle.cxfs=option.cxfs
+      this.uFormTitle.djbh = option.djbh
+      this.uFormTitle.cxlxid=this.uFormTitle.cxfs.split(' ')[0]
+      console.log('旧单子信息',this.uFormTitle);
+      this.state = option.state
     }
     //this.querySj(true, sjVal, "sjbh")
     this.queryMore(true, ckVal, "CKINFO", "ckbh")
