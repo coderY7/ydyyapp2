@@ -1142,7 +1142,6 @@ export default {
     } else if (option.state == "edit" || option.state == "look") {
       this.ifpage = true
       sjVal = option.sjbh
-      this.getList()
       this.editTitleObj = option
       console.log(option)
       this.editTitleObj.cxfs=option.cxfs
@@ -1151,6 +1150,8 @@ export default {
       this.uFormTitle.cxlxid=this.uFormTitle.cxfs.split(' ')[0]
       console.log('旧单子信息',this.uFormTitle);
       this.state = option.state
+      this.getList()
+
     }
     //this.querySj(true, sjVal, "sjbh")
     this.queryMore(true, ckVal, "CKINFO", "ckbh")
