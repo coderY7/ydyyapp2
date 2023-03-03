@@ -136,14 +136,14 @@
             </view>
           </view>
 
-          <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
-            <u-input placeholder="请输入促销价格" type="text"  v-model="uFormModel.cxjg"
-                     >
-            </u-input>
-            <uni-icons custom-prefix="iconfont" type="icon-yuyin"
-                       :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
-            <text class="inp-right-text" v-else></text>
-          </u-form-item>
+<!--          <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">-->
+<!--            <u-input placeholder="请输入促销价格" type="text"  v-model="uFormModel.cxjg"-->
+<!--                     >-->
+<!--            </u-input>-->
+<!--            <uni-icons custom-prefix="iconfont" type="icon-yuyin"-->
+<!--                       :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>-->
+<!--            <text class="inp-right-text" v-else></text>-->
+<!--          </u-form-item>-->
 
 <view  v-if="uFormTitle.cxlxid=='01'">
   <u-form-item  label="数量下限" :labelWidth="74" prop="slxx" style="margin-bottom: 10px">
@@ -155,7 +155,7 @@
     <text class="inp-right-text" v-else></text>
   </u-form-item>
 
-  <u-form-item  label="数量上限" :labelWidth="74" prop="slsx" >
+  <u-form-item  label="数量上限" :labelWidth="74" prop="slsx" style="margin-bottom: 10px">
     <u-input placeholder="请输入数量上限" type="text"  v-model="uFormModel.slsx"
     >
     </u-input>
@@ -164,7 +164,7 @@
     <text class="inp-right-text" v-else></text>
   </u-form-item>
 
-  <u-form-item  label="赠送商品编码" :labelWidth="74" prop="zsspbm" >
+  <u-form-item  label="赠送商品编码" :labelWidth="74" prop="zsspbm" style="margin-bottom: 10px">
     <u-input placeholder="请输入赠送商品编码" type="text"  v-model="uFormModel.zsspbm"
     >
     </u-input>
@@ -184,7 +184,7 @@
 </view>
 
 <view v-if="uFormTitle.cxlxid=='02'||uFormTitle.cxlxid=='18'||uFormTitle.cxlxid=='28'">
-  <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+  <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" >
     <u-input placeholder="请输入促销价格" type="text"  v-model="uFormModel.cxjg"
     >
     </u-input>
@@ -193,7 +193,6 @@
     <text class="inp-right-text" v-else></text>
   </u-form-item>
 </view>
-
 
  <view v-if="uFormTitle.cxlxid=='03'||uFormTitle.cxlxid=='19'||uFormTitle.cxlxid=='29'">
             <u-form-item label="促销折扣率" :labelWidth="74" prop="cxzkl" v-show="doingindex>=1">
@@ -208,7 +207,7 @@
 
 
 <view v-if="uFormTitle.cxlxid=='04'">
-            <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入促销价格" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -216,7 +215,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="按量下限" :labelWidth="74" prop="slxx" v-show="doingindex>=1">
+            <u-form-item label="按量下限" :labelWidth="74" prop="slxx" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入按量下限" type="text"  v-model="uFormModel.slxx"
               >
               </u-input>
@@ -236,7 +235,7 @@
 
 
 <view v-if="uFormTitle.cxlxid=='05'">
-            <u-form-item label="促销折扣率" :labelWidth="74" prop="cxzkl" v-show="doingindex>=1">
+            <u-form-item label="促销折扣率" :labelWidth="74" prop="cxzkl" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入促销折扣率" type="text"  v-model="uFormModel.cxzkl"
               >
               </u-input>
@@ -244,7 +243,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="按量下限" :labelWidth="74" prop="slxx" v-show="doingindex>=1">
+            <u-form-item label="按量下限" :labelWidth="74" prop="slxx" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入按量下限" type="text"  v-model="uFormModel.slxx"
               >
               </u-input>
@@ -263,7 +262,7 @@
           </view>
 
 <view v-if="uFormTitle.cxlxid=='B1'">
-            <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入促销价格" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -271,7 +270,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="最底销量" :labelWidth="74" prop="slxx" v-show="doingindex>=1">
+            <u-form-item label="最底销量" :labelWidth="74" prop="slxx" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入最底销量" type="text"  v-model="uFormModel.slxx"
               >
               </u-input>
@@ -290,7 +289,7 @@
           </view>
 
  <view v-if="uFormTitle.cxlxid=='B2'">
-            <u-form-item label="促销折扣率" :labelWidth="74" prop="cxzkl" v-show="doingindex>=1">
+            <u-form-item label="促销折扣率" :labelWidth="74" prop="cxzkl" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入促销折扣率" type="text"  v-model="uFormModel.cxzkl"
               >
               </u-input>
@@ -298,7 +297,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="最底销量" :labelWidth="74" prop="slxx" v-show="doingindex>=1">
+            <u-form-item label="最底销量" :labelWidth="74" prop="slxx" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入最底销量" type="text"  v-model="uFormModel.slxx"
               >
               </u-input>
@@ -343,7 +342,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='08'">
-            <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入促销价格" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -383,37 +382,37 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='10'||uFormTitle.cxlxid=='11'">
-            <u-form-item label="递增特价1" :labelWidth="74" prop="cxzk1" v-show="doingindex>=1">
+            <u-form-item label="递增特价1" :labelWidth="74" prop="cxzk1" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入递增特价1" type="text"  v-model="uFormModel.cxzk1"
               >
               </u-input>
             </u-form-item>
-            <u-form-item label="递增特价2" :labelWidth="74" prop="cxzk2" v-show="doingindex>=1">
+            <u-form-item label="递增特价2" :labelWidth="74" prop="cxzk2" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入递增特价2" type="text"  v-model="uFormModel.cxzk2"
               >
               </u-input>
             </u-form-item>
-            <u-form-item label="递增特价3" :labelWidth="74" prop="cxzk3" v-show="doingindex>=1">
+            <u-form-item label="递增特价3" :labelWidth="74" prop="cxzk3" v-show="doingindex>=1" style="margin-bottom: 10px">
             <u-input placeholder="请输入递增特价3" type="text"  v-model="uFormModel.cxzk3"
             >
             </u-input>
           </u-form-item>
-            <u-form-item label="递增特价4" :labelWidth="74" prop="cxzk4" v-show="doingindex>=1">
+            <u-form-item label="递增特价4" :labelWidth="74" prop="cxzk4" v-show="doingindex>=1" style="margin-bottom: 10px">
             <u-input placeholder="请输入递增特价4" type="text"  v-model="uFormModel.cxzk4"
             >
             </u-input>
           </u-form-item>
-            <u-form-item label="递增特价5" :labelWidth="74" prop="cxzk5" v-show="doingindex>=1">
+            <u-form-item label="递增特价5" :labelWidth="74" prop="cxzk5" v-show="doingindex>=1" style="margin-bottom: 10px">
             <u-input placeholder="请输入递增特价5" type="text"  v-model="uFormModel.cxzk5"
             >
             </u-input>
           </u-form-item>
-            <u-form-item label="递增特价6" :labelWidth="74" prop="cxzk6" v-show="doingindex>=1">
+            <u-form-item label="递增特价6" :labelWidth="74" prop="cxzk6" v-show="doingindex>=1" style="margin-bottom: 10px">
             <u-input placeholder="请输入递增特价6" type="text"  v-model="uFormModel.cxzk6"
             >
             </u-input>
           </u-form-item>
-            <u-form-item label="递增特价7" :labelWidth="74" prop="cxzk7" v-show="doingindex>=1">
+            <u-form-item label="递增特价7" :labelWidth="74" prop="cxzk7" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入递增特价7" type="text"  v-model="uFormModel.cxzk7"
               >
               </u-input>
@@ -426,7 +425,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='A0'">
-            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
               >
               </u-input>
@@ -434,7 +433,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="换购价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="换购价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入换购价格" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -442,7 +441,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="最高换购数量" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+            <u-form-item label="最高换购数量" :labelWidth="74" prop="slsx" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入最高换购数量" type="text"  v-model="uFormModel.slsx"
               >
               </u-input>
@@ -473,7 +472,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='A1'">
-            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
               >
               </u-input>
@@ -492,7 +491,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='A2'">
-            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
               >
               </u-input>
@@ -500,7 +499,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="优惠金额" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="优惠金额" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入优惠金额" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -519,7 +518,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='A3'">
-            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
               >
               </u-input>
@@ -527,7 +526,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="抵挡金额" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="抵挡金额" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入抵挡金额" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -546,7 +545,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='A4'">
-            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
               >
               </u-input>
@@ -554,7 +553,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="购物券面值" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="购物券面值" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入购物券面值" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -562,7 +561,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="购物券ID" :labelWidth="74" prop="gwjid" v-show="doingindex>=1">
+            <u-form-item label="购物券ID" :labelWidth="74" prop="gwjid" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入购物券ID" type="text"  v-model="uFormModel.gwjid"
               >
               </u-input>
@@ -570,7 +569,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="返券数量" :labelWidth="74" prop="zssl" v-show="doingindex>=1">
+            <u-form-item label="返券数量" :labelWidth="74" prop="zssl" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入返券数量" type="text"  v-model="uFormModel.zssl"
               >
               </u-input>
@@ -589,7 +588,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='A5'">
-            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1">
+            <u-form-item label="买满金额" :labelWidth="74" prop="mmje" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入买满金额" type="text"  v-model="uFormModel.mmje"
               >
               </u-input>
@@ -597,7 +596,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="数量上限" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+            <u-form-item label="数量上限" :labelWidth="74" prop="slsx" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入数量上限" type="text"  v-model="uFormModel.slsx"
               >
               </u-input>
@@ -616,7 +615,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='D0'">
-            <u-form-item label="换购数量" :labelWidth="74" prop="zssl" v-show="doingindex>=1">
+            <u-form-item label="换购数量" :labelWidth="74" prop="zssl" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入换购数量" type="text"  v-model="uFormModel.zssl"
               >
               </u-input>
@@ -624,7 +623,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="换购价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="换购价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入换购价格" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -643,7 +642,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='22'">
-            <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="促销价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入促销价格" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -651,7 +650,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="限购次数/量" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+            <u-form-item label="限购次数/量" :labelWidth="74" prop="slsx" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入限购次数/量" type="text"  v-model="uFormModel.slsx"
               >
               </u-input>
@@ -670,7 +669,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='23'">
-            <u-form-item label="领赠价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="领赠价格" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入领赠价格" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -678,7 +677,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="限领数量" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+            <u-form-item label="限领数量" :labelWidth="74" prop="slsx" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入限领数量" type="text"  v-model="uFormModel.slsx"
               >
               </u-input>
@@ -697,7 +696,7 @@
           </view>
 
           <view v-if="uFormTitle.cxlxid=='24'">
-            <u-form-item label="生日特价" :labelWidth="74" prop="cxjg" v-show="doingindex>=1">
+            <u-form-item label="生日特价" :labelWidth="74" prop="cxjg" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入生日特价" type="text"  v-model="uFormModel.cxjg"
               >
               </u-input>
@@ -705,7 +704,7 @@
                          :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
               <text class="inp-right-text" v-else></text>
             </u-form-item>
-            <u-form-item label="最高限量" :labelWidth="74" prop="slsx" v-show="doingindex>=1">
+            <u-form-item label="最高限量" :labelWidth="74" prop="slsx" v-show="doingindex>=1" style="margin-bottom: 10px">
               <u-input placeholder="请输入最高限量" type="text"  v-model="uFormModel.slsx"
               >
               </u-input>
