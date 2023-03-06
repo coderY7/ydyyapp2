@@ -13,7 +13,7 @@
   </view>
 <!-- -->
   <view class="box-content">
-  <view v-if="state=='add'">
+  <view v-if="state=='add'" classw="unitbox">
     <view >
       <view style="position: fixed;left: 20px;top:45px;
     right: 20px;height: 30px;z-index: 99999999;background:#fff"  >
@@ -21,7 +21,6 @@
       </view>
     </view>
 
-<view> </view>
 <!--    特价类型-->
    <view class="unit1">
 <view v-for="(item,index) in typeData" :key="index" class="tjbox">

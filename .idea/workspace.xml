@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="促销条件完成，单个修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/cxdxd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/cxdxd.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pages/function/component/cxdlr/cxdxd.vue" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/pages/function/component/cxdlr/cxdcx.vue" root0="SKIP_INSPECTION" />
@@ -28,6 +30,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
@@ -60,7 +63,8 @@
       <workItem from="1678068067557" duration="313000" />
       <workItem from="1678069733712" duration="29000" />
       <workItem from="1678069777065" duration="88000" />
-      <workItem from="1678069964929" duration="623000" />
+      <workItem from="1678069964929" duration="1762000" />
+      <workItem from="1678080196878" duration="3679000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1677751239964</created>
@@ -104,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677828739056</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="促销条件完成，单个修改">
+      <created>1678072898548</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678072898548</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +127,11 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
