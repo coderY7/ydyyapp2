@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="促销条件完成，样式修改">
+    <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="促销条件完成，单个修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components" beforeDir="false" afterPath="$PROJECT_DIR$/components" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +44,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
@@ -58,7 +56,11 @@
       <option name="presentableId" value="Default" />
       <updated>1677750583331</updated>
       <workItem from="1677750584449" duration="925000" />
-      <workItem from="1677806776342" duration="11883000" />
+      <workItem from="1677806776342" duration="13131000" />
+      <workItem from="1678068067557" duration="313000" />
+      <workItem from="1678069733712" duration="29000" />
+      <workItem from="1678069777065" duration="88000" />
+      <workItem from="1678069964929" duration="623000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1677751239964</created>
@@ -95,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677825611427</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="促销条件完成，单个修改">
+      <created>1677828739056</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677828739056</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,9 +135,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
     <MESSAGE value="test" />
     <MESSAGE value="促销条件完成" />
     <MESSAGE value="促销条件完成，样式修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="促销条件完成，样式修改" />
+    <MESSAGE value="促销条件完成，单个修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="促销条件完成，单个修改" />
   </component>
 </project>
