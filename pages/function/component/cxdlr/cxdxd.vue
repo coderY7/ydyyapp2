@@ -13,18 +13,17 @@
   </view>
 <!-- -->
   <view class="box-content">
-  <view v-if="state=='add'" classw="unitbox">
-    <view >
-      <view style="position: fixed;left: 20px;top:45px;
-    right: 20px;height: 30px;z-index: 99999999;background:#fff"  >
-        <u-subsection :list="tablist" mode="subsection" :current="curNow" @change="sectionChange"></u-subsection>
+  <view v-if="state=='add'" class="unitbox">
+    <view>
+      <view v-for="(item,index) of tablist" class="leftbox" @click="sectionChange(index)">
+        <view :class="{'active': curNow==index}">{{item}}</view>
       </view>
     </view>
 
 <!--    特价类型-->
    <view class="unit1">
-<view v-for="(item,index) in typeData" :key="index" class="tjbox">
-  <uni-card :title="item.name" extra="创建 +" style="min-width: 318px" @tap="Neworder(item)">
+<view v-for="(item,index) in typeData" :key="index" class="rightbox">
+  <uni-card :title="item.name" extra="创建 +"  @tap="Neworder(item)">
     <view>
       <view>{{item.remark}}</view>
     </view>
@@ -54,9 +53,10 @@ export default {
   },
   data() {
     return {
+      isActive: false,
       state:'add',
       cxlxym:false,//促销类型页面
-      tablist:['特价','折扣','买满','换购','会员','档期'],
+      tablist:['特价','折扣','买满','换购','会员'],
       curNow: 0,
       typeData: [
         { name: '日期段内特价', id: '02', page: 'detail02', remark: '在某一特定日期，指定的单品 做特价。如：XXX商品原价10元，1月1日到1月3日特价8元销售', dmdq: false },
@@ -117,6 +117,7 @@ if(option.state=='edit'){
   methods: {
     //切换tab
     sectionChange(index) {
+      this.isActive =true
       this.curNow = index;
       this.tabchange(this.tablist[this.curNow])
     },
@@ -219,17 +220,29 @@ if(option.state=='edit'){
     padding-bottom: 40px;
   }
 }
-.tjbox{
-  display: inline-flex;
-  flex-direction: column;
-}
-.unit1{
-  margin-top: 20px;
-}
+
 
 </style>
 <style lang="scss">
 page {
   background-color: #f8f8f8;
+}
+.unitbox{
+  display: flex;
+}
+.leftbox{
+  width: 60px;
+  height: 50px;
+ font-size: 16px;
+  text-align: center;
+  line-height: 50px;
+  border-bottom:1px solid #0A98D5 ;
+}
+.active{
+  color: #0A98D5;
+}
+.rightbox:first-of-type{
+  margin-top: 0;
+
 }
 </style>
