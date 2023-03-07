@@ -783,14 +783,14 @@ export default {
         jgcxbz: "",//供价类型
 
         allsmm: true,
-        bcbl: '',
+        bcbl: '1',
         checkcbj: false,
         checkdm: false,
         cxjg: '',
 
         cxzkl: '',
         dmkdlxid: "",
-        dmnewkdl: '',
+        dmnewkdl: '1',
         dmpjjj: "",
         dmsjbh: "",
         gwjid: "",
@@ -1154,7 +1154,7 @@ export default {
       this.editForm.zssl=row.zssl
       this.editForm.zsspbm=row.zsspbm
 
-
+      this.editForm.dmpjjj=row.dmpjjj
 
       this.formMore(row.jgcxbz,false)
       // this.$set(this.tableData[index], "splx", [this.tableData[index].splx])
