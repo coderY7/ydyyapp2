@@ -1872,7 +1872,7 @@ console.log('当前商品需要的信息',this.uFormModel)
         "djtype": "CXD",
         "fdbh": uni.getStorageSync("fdbh"),
         "userid": uni.getStorageSync("userid"),
-        "ztbz": "F"
+        "ztbz": ""
       }
       GetlistC(dataes).then((res) => {
         console.log("获取该单号已上传的商品 res", res)

@@ -787,13 +787,7 @@ export default {
         checkcbj: false,
         checkdm: false,
         cxjg: '',
-        cxzk1: '',
-        cxzk2: '',
-        cxzk3: '',
-        cxzk4: '',
-        cxzk5: '',
-        cxzk6: '',
-        cxzk7: '',
+
         cxzkl: '',
         dmkdlxid: "",
         dmnewkdl: '',
@@ -1262,6 +1256,7 @@ export default {
     //保存接口
     saveface(list){
       let data={
+        DmPlanID:'',
         "access_token": uni.getStorageSync("access_token"),
         "djbh": this.uFormTitle.djbh,
         "fdbh": uni.getStorageSync("fdbh"),
@@ -1271,7 +1266,6 @@ export default {
         cxlxid: this.uFormTitle.cxlxid,
         fdlist:this.uFormTitle.fdlist,
         weeklist:'',
-        remark:'',
         "list": this.uploadarr,
       }
       CxdUpdate(data).then((res)=>{
