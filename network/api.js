@@ -108,7 +108,8 @@ export const CxdDelLine = (params, config = {}) => http.post("/mzsale/web/cx/del
 //促销单审核上账
 export const CxdCheck = (params, config = {}) => http.post("/mzsale/web/cx/check", params, config)
 
-
+//锁定解锁单据
+export const Dolock = (params, config = {}) => http.post("/mzsale/web/common/order/dolock", params, config)
 
 
 

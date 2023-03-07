@@ -919,6 +919,7 @@ import {
   CxdDelete,
   CxdDelLine,
   CxdCheck,
+  Dolock,
 } from "@/network/api.js";
 import xuanSwitch from "@/components/xuan-switch/xuan-switch.vue";
 import goodsVoice from '@/components/goodsVoice/goodsVoice';
@@ -1635,15 +1636,14 @@ console.log('当前商品需要的信息',this.uFormModel)
         success: (resm) => {
           if (resm.confirm) {
             let dataes = {
-              "access_token": uni.getStorageSync("access_token"),
-              "conname": "",
-              "djbh": this.uFormTitle.djbh,
-              "isyxcheck": "F",
-              "remark": this.uFormTitle.remarks,
+              access_token: uni.getStorageSync("access_token"),
+              fdbh:this.fdlist,
+              fdtype:'FD',
+              list:[this.uFormTitle.djbh],
+              userid:uni.getStorageSync('userid')
 
-              "username": uni.getStorageSync("dlmc"),
             }
-            BsdCheck(dataes).then((res) => {
+            CxdCheck(dataes).then((res) => {
               console.log("报审核 res", res)
               if (res.error_code == 0) {
                 this.$refs.uToast.show({
@@ -1665,6 +1665,20 @@ console.log('当前商品需要的信息',this.uFormModel)
           }
         }
       });
+    },
+    //单据解锁
+    unlock(){
+      let data={
+        access_token:uni.getStorageSync('access_token'),
+        djbh:this.uFormTitle.djbh,
+        djtype:'CXD',
+        fdbh:this.fdlist,
+        userid:uni.getStorageSync('userid'),
+        ztbz:'F'
+      }
+      Dolock(data).then((res)=>{
+        console.log('单据解锁',res)
+          })
     },
     // 整单 删除
     deldh() {

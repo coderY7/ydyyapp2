@@ -236,13 +236,13 @@ page {
  font-size: 16px;
   text-align: center;
   line-height: 50px;
-  border-bottom:1px solid #0A98D5 ;
 }
 .active{
   color: #0A98D5;
+  border-bottom:1px solid #0A98D5 ;
+
 }
 .rightbox:first-of-type{
   margin-top: 0;
-
 }
 </style>
