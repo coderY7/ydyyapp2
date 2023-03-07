@@ -770,6 +770,7 @@ export default {
   data() {
     return {
       isVoiceMode:false,
+
       doingindex:100,
       start:'2021-3-20',
       switchList:["是","否"],
