@@ -46,14 +46,23 @@
               <u-radio-group v-model="v.value" placement="row" v-if="v.codeid=='SK'">
                 <u-radio v-for="(item,index) in v.tabname" :key="item.id" :label="item.name" :name="item.id"></u-radio>
               </u-radio-group>
-              <u-input :placeholder="'请选择'+v.colname" :disabled="v.readonly?true:false" :disabledColor="v.readonly==''?'#fff':'#F5F7FA'" v-model="v.value" v-else>
-                <template slot="suffix">
-                  <view v-if="v.readonly==''&&v.value!=''" @tap.stop="clearAlone(v,i)">
-                    <uni-icons type="clear" size="19" color="#e1e1e1"></uni-icons>
-                  </view>
-                </template>
-              </u-input>
-              <text class="inp-right-text"></text>
+
+              <uni-data-select v-if="v.colname=='价格类型'"
+                               v-model="v.value"
+                               :localdata="tjlist"
+                               :clear="false"
+              ></uni-data-select>
+
+
+
+<!--              <u-input :placeholder="'请选择'+v.colname" :disabled="v.readonly?true:false" :disabledColor="v.readonly==''?'#fff':'#F5F7FA'" v-model="v.value" v-else>-->
+<!--                <template slot="suffix">-->
+<!--                  <view v-if="v.readonly==''&&v.value!=''" @tap.stop="clearAlone(v,i)">-->
+<!--                    <uni-icons type="clear" size="19" color="#e1e1e1"></uni-icons>-->
+<!--                  </view>-->
+<!--                </template>-->
+<!--              </u-input>-->
+<!--              <text class="inp-right-text"></text>-->
             </view>
             <view class="view-flex" v-else-if="v.type=='字符'">
               <text class="form-left-text">{{v.colname}}</text>
@@ -158,6 +167,7 @@ export default {
   },
   data() {
     return {
+      tjlist:'',
       queryData:[],
       foldMoreShow:true,
 
@@ -171,7 +181,15 @@ export default {
     }
   },
   onLoad() {
-
+    let cxlxdata=uni.getStorageSync('basic').SPJGMS
+    let cxlist = []
+    cxlxdata.forEach((item,i)=>{
+      cxlist.push({
+        "value": cxlxdata[i].jglxid,
+        "text": cxlxdata[i].jglxmc,
+      })
+    })
+    this.tjlist=cxlist
   },
   onReady() {
     // 设置状态栏文字颜色为 白色

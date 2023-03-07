@@ -42,31 +42,14 @@
 <!--          </u-input>-->
           <rudon-multiSelector welcome="请选择调价类型" :is_using_slot="false" :is_using_icon="true" :localdata="jglxdata" @change="jglxChanged"></rudon-multiSelector>
         </u-form-item>
-<!--        <u-form-item label="生效时间" :labelWidth="74" prop="sxsj">-->
-<!--&lt;!&ndash;          <xuanSwitch :switchList="switchList" :defaultSwitch="editForm.sxsj" @change="switChange"></xuanSwitch>&ndash;&gt;-->
-<!--          <uni-datetime-picker-->
-<!--              :value="start"-->
-<!--              type="datetime"-->
-<!--              v-model="editForm.sxsj"-->
-<!--              @change="changeLog"-->
-<!--          />-->
-<!--        </u-form-item>-->
+
         <u-form-item label="分摊比率" :labelWidth="74" prop="fdssbl">
-<!--          <xuanSwitch :switchList="switchList" :defaultSwitch="editForm.splx" @change="switChange"></xuanSwitch>-->
+
           <u-input placeholder="请输入分摊比率" type="number" v-model="editForm.fdssbl">
           </u-input>
         </u-form-item>
       </u-form>
-<!--      <view class="form-card">-->
-<!--        <view style="display:flex;justify-content:space-between;">-->
-<!--          <text>供价类型</text>-->
-<!--        </view>-->
-<!--        <view>-->
-<!--          <view class="radio-view">-->
-<!--            <view class="radio-text" v-for="(v, i) in lxlist" :class="{lxactive:editForm.jgcxbz==v.sjcxlxid}" @tap="formMoreChange(v.sjcxlxid)">{{v.lxmc}}</view>-->
-<!--          </view>-->
-<!--        </view>-->
-<!--      </view>-->
+
       <view class="btns" v-if="stateDetail">
         <u-button type="primary" class="my-primary-button" :plain="true" text="取消" throttleTime="2000"
                   @tap="cancelDetail"></u-button>
@@ -135,7 +118,8 @@ import dayjs from "dayjs";
 import {
   Basic,
   Search,
-  CxdDelLine
+  CxdDelLine,
+  BjdDelLine,
 } from "@/network/api.js";
 import xuanSwitch from "@/components/xuan-switch/xuan-switch.vue";
 export default {
