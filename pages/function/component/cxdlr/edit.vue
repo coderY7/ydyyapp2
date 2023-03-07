@@ -33,10 +33,7 @@
             </view>
           </view>
         </view>
-        <u-form-item label="促销价格" :labelWidth="74" prop="cxjg">
-          <u-input placeholder="请输入促销价格" type="number" v-model="editForm.cxjg">
-          </u-input>
-        </u-form-item>
+
 
 
 
@@ -644,7 +641,7 @@
           </view>
         </u-form-item>
 
-        <u-form-item label="折扣类型" :labelWidth="74" prop="dmkdlxid" >
+        <u-form-item v-if="editForm.checkdm" label="折扣类型" :labelWidth="74" prop="dmkdlxid" >
           <uni-data-select
               v-model="editForm.dmkdlxid"
               :localdata="dmkdlxidlist"
@@ -652,7 +649,7 @@
           ></uni-data-select>
         </u-form-item>
 
-        <u-form-item label="商家合同" :labelWidth="74" prop="sjbh">
+        <u-form-item v-if="editForm.checkdm" label="商家合同" :labelWidth="74" prop="sjbh">
           <uni-data-select
               v-model="editForm.sjinfo[0].sjbh"
               :localdata="sjlist"
@@ -661,7 +658,7 @@
 
         </u-form-item>
 
-        <u-form-item label="特供进价" :labelWidth="74" prop="dmpjjj">
+        <u-form-item v-if="editForm.checkdm" label="特供进价" :labelWidth="74" prop="dmpjjj">
           <u-input placeholder="请输入特供进价" type="number" v-model="editForm.dmpjjj">
           </u-input>
         </u-form-item>
@@ -736,7 +733,8 @@ import {
   Basic,
   Search,
   CxdDelLine,
-  Cxdsjinfo
+  Cxdsjinfo,
+  CxdUpdate
 } from "@/network/api.js";
 import xuanSwitch from "@/components/xuan-switch/xuan-switch.vue";
 export default {
@@ -748,6 +746,12 @@ export default {
       }
     },
     title: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    },
+    uFormTitle: {
       type: Object,
       default: () => {
         return {}
@@ -765,6 +769,8 @@ export default {
   },
   data() {
     return {
+      isVoiceMode:false,
+      doingindex:100,
       start:'2021-3-20',
       switchList:["是","否"],
       dmkdlxidlist:[],
@@ -779,7 +785,7 @@ export default {
         allsmm: true,
         bcbl: '',
         checkcbj: false,
-        checkdm: true,
+        checkdm: false,
         cxjg: '',
         cxzk1: '',
         cxzk2: '',
@@ -1122,9 +1128,11 @@ export default {
     },
     // 编辑商品
     toeditDetail(row, index) {
-      this.uFormTitle=row.cxlxid
+      this.uFormTitle=this.uFormTitle
+      console.log(row,this.uFormTitle);
+
       this.currentdata()
-      this.serchGoods(row.spbm,this.editForm)
+      //this.serchGoods(row.spbm,this.editForm)
       // this.editForm.jgcxbz = row.jgcxbz
       this.editForm.splx = row.splx=="T"?true:false
       this.editForm.sjbh = row.fdsjbh
@@ -1136,6 +1144,8 @@ export default {
       this.editForm.fdssbl=row.fdssbl
       this.editForm.fdsjbh=row.fdsjbh
       this.editForm.sxsj=row.sxsj
+
+      this.editForm.cxjg=row.cxjg
 
       this.editForm.cxzkl=row.cxzkl //折扣率
       this.editForm.fdbm=row.fdbm
@@ -1186,12 +1196,10 @@ export default {
       //this.$refs.uForm.validate().then(resf => {
       this.uploadarr = []
       // let xx = Number(this.tableData[this.tableIndex].rq.split("T")[0].split("-")[2]) + this.serchGoodsData.bzqts
-      console.log('2121',this.editForm,this.tableData[this.tableIndex])
+      console.log('2121',this.editForm)
       this.uploadarr.push({
-        "spmc":this.tableData[this.tableIndex].spmc,
+
         "guid": this.tableData[this.tableIndex].recordid,
-        "spbm": this.tableData[this.tableIndex].spbm,
-        "spsmm": this.tableData[this.tableIndex].spsmm,
         "sppc":'',
         "bhjg":this.editForm.bhjg,
         "bqjg":this.tableData[this.tableIndex].bqjg,
@@ -1201,23 +1209,86 @@ export default {
         "spfixlx":this.editForm.spfixlx,
         "spremark":this.editForm.spremark,
         "sxsj":this.tableData[this.tableIndex].sxsj,//生效时间
+
+        mmje:this.editForm.mmje,
+        slsx:this.editForm.slsx,
+        slxx:this.editForm.slxx,
+        zsspbm:this.editForm.zsspbm,
+        zssl:this.editForm.zssl,
+        gwjid:this.editForm.gwjid,
+        sxje:this.editForm.sxje,
+        issum:this.editForm.issum,
+        cxzkl:this.editForm.cxzkl,
+        xspsl:this.editForm.xspsl,
+
+        cxzk1:this.editForm.cxzk1,
+        cxzk2:this.editForm.cxzk2,
+        cxzk3:this.editForm.cxzk3,
+        cxzk4:this.editForm.cxzk4,
+        cxzk5:this.editForm.cxzk5,
+        cxzk6:this.editForm.cxzk6,
+        cxzk7:this.editForm.cxzk7,
+
+
+
+        allsmm: this.editForm.allsmm,//是否所有商品
+        bcbl:this.editForm.bcbl,//补差比例
+        checkcbj: this.editForm.checkcbj,//是否库存补差
+        checkdm: this.editForm.checkdm,//是否特供
+        cxjg:this.editForm.cxjg,//促销价格
+        dmkdlxid:this.editForm.dmkdlxid,//促扣类型
+        dmnewkdl:this.editForm.dmnewkdl,//新促扣率
+        dmpjjj: this.editForm.dmpjjj,//特供进价
+        dmsjbh:this.editForm.sjbh,//特供商家编号
+        nsjg: this.editForm.nsjg,//零售价格
+        saveStatus: true,
+        sjinfo: [{
+          sjbh: this.editForm.sjinfo[0].sjbh,
+          sjmc: this.editForm.sjinfo[0].sjmc
+        }],
+        type: this.editForm.type,
+        "spbm": this.editForm.spbm,
+        "spmc": this.editForm.spmc,
+        "spsmm": this.editForm.spsmm,
       })
+
       // console.log("保存商品 editDetailSave this.uploadarr",this.uploadarr)
-      this.$emit("editSave",this.uploadarr,this.editForm)
+      //this.$emit("editSave",this.uploadarr,this.editForm)
       // }).catch(errors => {
       //
       // })
+      this.saveface(this.uploadarr)
+    },
+    //保存接口
+    saveface(list){
+      let data={
+        "access_token": uni.getStorageSync("access_token"),
+        "djbh": this.uFormTitle.djbh,
+        "fdbh": uni.getStorageSync("fdbh"),
+        "userid": uni.getStorageSync("userid"),
+        EndRQ:this.uFormTitle.EndRQ,
+        StartRQ:this.uFormTitle.StartRQ,
+        cxlxid: this.uFormTitle.cxlxid,
+        fdlist:this.uFormTitle.fdlist,
+        weeklist:'',
+        remark:'',
+        "list": this.uploadarr,
+      }
+      CxdUpdate(data).then((res)=>{
+        console.log('保存商品修改',res);
+      })
     },
 
     // 删除商品
     delGoods(row, index) {
+      console.log(row)
       uni.showModal({
         content: "是否确认删除商品",
         success: (resm)=> {
           if (resm.confirm) {
             let dataes={
               "access_token": uni.getStorageSync("access_token"),
-              "djbh": row.bydbh,
+              "djbh": row.cxxxid,
               "fdbh": uni.getStorageSync("fdbh"),
               "userid": uni.getStorageSync("userid"),
               "username": uni.getStorageSync("dlmc"),

@@ -752,7 +752,7 @@
             <text class="inp-right-text" v-else></text>
           </u-form-item>
 
-          <u-form-item v-if="this.uFormModel.checkdm" label="商家合同" :labelWidth="74" prop="sjbh" v-show="doingindex>=3">
+          <u-form-item v-if="uFormModel.checkdm" label="商家合同" :labelWidth="74" prop="sjbh" v-show="doingindex>=3">
             <uni-data-select
                              v-model="uFormModel.sjinfo[0].sjbh"
                              :localdata="sjlist"
@@ -765,7 +765,7 @@
 
 
 
-          <u-form-item v-if="this.uFormModel.checkdm" label="特供进价" :labelWidth="74" prop="dmpjjj" v-show="doingindex>=4">
+          <u-form-item v-if="uFormModel.checkdm" label="特供进价" :labelWidth="74" prop="dmpjjj" v-show="doingindex>=4">
             <u-input placeholder="请输入特供进价" type="number" v-model="uFormModel.dmpjjj"
                      :focus="focusObj.numFocus">
             </u-input>
@@ -775,7 +775,7 @@
             <text class="inp-right-text" v-else></text>
           </u-form-item>
 
-          <u-form-item v-if="this.uFormModel.checkdm" label="折扣类型" :labelWidth="74" prop="dmkdlxid" v-show="doingindex>=5">
+          <u-form-item v-if="uFormModel.checkdm" label="折扣类型" :labelWidth="74" prop="dmkdlxid" v-show="doingindex>=5">
             <uni-data-select
                 v-model="uFormModel.dmkdlxid"
                 :localdata="dmkdlxidlist"
@@ -826,7 +826,9 @@
     </u-button>
 
     <view class="box-content" v-if="!ifpage">
-      <edit :title="editTitleObj" :tableData="tableData" :state="state" @editSave="editSave" ref="editDetail" @delgoods="delgoods">
+      <edit :title="editTitleObj" :tableData="tableData" :state="state" @editSave="editSave"
+            :uFormTitle="uFormTitle"
+            ref="editDetail" @delgoods="delgoods">
       </edit>
     </view>
 
@@ -950,8 +952,6 @@ export default {
         djbh: "",
         fdbh:'',
         fdlist:'',
-
-
         sjbh: "",
         ckbh: "",
         tklx: "",
@@ -1171,6 +1171,7 @@ export default {
       if(item.value==uni.getStorageSync('fdbh')){
         this.data2[i].is_selected=true
         this.fdlist=this.data2[i].value
+        this.uFormTitle.fdlist=this.data2[i].value
       }
     })
 
@@ -1363,10 +1364,13 @@ console.log('当前商品需要的信息',this.uFormModel)
       })
 
       this.fdlist=fdlist
+      this.uFormTitle.fdlist=fdlist
       this.data2 = e
       console.log(this.fdlist)
       if(this.fdlist.length=='1'){
         this.fdlist=this.fdlist.toString()
+        this.uFormTitle.fdlist=this.uFormTitle.fdlist.toString()
+
       }
     },
     //开始时间
@@ -1651,6 +1655,9 @@ console.log('当前商品需要的信息',this.uFormModel)
                   message: "审核成功"
                 })
                 this.state = "check"
+                this.editTitleObj.state='look'
+                //解锁
+                this.unlock()
               } else {
                 this.$refs.uToast.show({
                   type: "error",
