@@ -1146,6 +1146,9 @@ export default {
       // this.editForm.jgcxbz = row.jgcxbz
       this.editForm.splx = row.splx=="T"?true:false
       this.editForm.sjbh = row.fdsjbh
+
+      this.editForm.dmpjjj=row.cxspjj
+
       this.editForm.nsjg = row.nsjg
       this.editForm.remark=row.remark
       this.editForm.spmc=row.spmc
@@ -1167,12 +1170,17 @@ export default {
       this.editForm.yjkdlxid=row.yjkdlxid
       this.editForm.cxlxid=row.cxlxid
       this.editForm.cxsl=row.cxsl //最小数量
+      this.editForm.slxx=row.cxsl //最小数量
+      this.editForm.slsx=row.cxsl2 //最小数量
+      if(row.cxlxid=='08'){
+        this.editForm.slsx=row.cxsl //限销数量
+      }
       this.editForm.cxsl2=row.cxsl2 //最大数量
       this.editForm.yxsl=row.yxsl
       //this.editForm.zssl=row.zssl
       //this.editForm.zsspbm=row.zsspbm
 
-      this.editForm.dmpjjj=row.dmpjjj
+      //this.editForm.dmpjjj=row.dmpjjj
       this.editForm.cxzk1=row.byjg2
       this.editForm.cxzk2=row.byjg2
       this.editForm.cxzk3=row.byjg3
