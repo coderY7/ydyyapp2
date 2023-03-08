@@ -81,6 +81,16 @@
                        :disabled="state=='look'||state=='check'">
               </u-input>
             </u-form-item>
+            <u-form-item v-if="uFormTitle.cxlxid=='D0'" label="换购商品" :labelWidth="76" prop="hdspbm" >
+              <u-input placeholder="请输入换购商品编号" v-model="uFormTitle.hdspbm"
+                       :disabled="state=='look'||state=='check'">
+              </u-input>
+            </u-form-item>
+            <u-form-item v-if="uFormTitle.cxlxid=='D0'" label="换购商品数量" :labelWidth="76" prop="pxzsl" >
+              <u-input placeholder="请输入换购商品数量" v-model="uFormTitle.pxzsl"
+                       :disabled="state=='look'||state=='check'">
+              </u-input>
+            </u-form-item>
           </u-form>
           <view class="flex-btns">
             <u-button type="primary" class="my-primary-button" text="报审"
@@ -947,6 +957,8 @@ export default {
       y: 300,
       ifpage: true,
       uFormTitle: {
+        hdspbm:'',//换购商品
+        pxzsl:'1',
         cxfs:'',
         cxlx:'',
         cxlxid:'',
@@ -2062,6 +2074,13 @@ console.log('当前商品需要的信息',this.uFormModel)
         cxlxid: this.uFormTitle.cxlxid,
         fdlist:this.fdlist,
         "list": this.uploadarr,
+      }
+      if(this.uFormTitle.cxlxid=='D0'){
+        dataes.hdspbm=this.uFormTitle.hdspbm
+        dataes.checkhycx=false
+        dataes.pxzsl=this.uFormTitle.pxzsl
+        dataes.kssj= "00:00:01"
+        dataes.jssj= "23:59:59"
       }
       console.log("state==" + state + "; 保存商品 dosave dataes", dataes)
       CxdAdd(dataes).then((res) => {

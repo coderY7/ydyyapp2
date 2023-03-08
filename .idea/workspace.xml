@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="30促销">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +82,7 @@
       <workItem from="1678096739181" duration="99000" />
       <workItem from="1678152783629" duration="19566000" />
       <workItem from="1678186988562" duration="3772000" />
-      <workItem from="1678238712740" duration="16269000" />
+      <workItem from="1678238712740" duration="20463000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1677751239964</created>
@@ -223,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678259674866</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="30促销">
+      <created>1678261083290</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1678261083290</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1172,14 +1172,10 @@ export default {
       this.editForm.cxsl=row.cxsl //最小数量
       this.editForm.slxx=row.cxsl //最小数量
       this.editForm.slsx=row.cxsl2 //最大数量
-      if(row.cxlxid=='08'){
-        this.editForm.slsx=row.cxsl //限销数量
-      }
+      this.editForm.zssl=row.zssl
+
       this.editForm.cxsl2=row.cxsl2 //最大数量
       this.editForm.yxsl=row.yxsl
-      //this.editForm.zssl=row.zssl
-      //this.editForm.zsspbm=row.zsspbm
-
       //this.editForm.dmpjjj=row.dmpjjj
       this.editForm.cxzk1=row.byjg2
       this.editForm.cxzk2=row.byjg2
@@ -1192,8 +1188,20 @@ export default {
       this.editForm.jssj=row.zzsj
       this.editForm.kssj=row.kssj
 
-      this.editForm.zssl=row.zssl
-      this.editForm.zsspbm=row.zsspbm
+      if(row.cxlxid=='08'){
+        this.editForm.slsx=row.cxsl //限销数量
+      }
+      if(row.cxlxid=='D0'){
+        this.editForm.zssl=row.cxsl
+        this.editForm.slsx=row.cxsl2
+        this.editForm.slxx=undefined
+        this.editForm.cxzkl=undefined //折扣率
+
+      }
+      if(row.cxlxid=='01'){
+        this.editForm.zssl=row.zssl
+        this.editForm.zsspbm=row.zsspbm
+      }
 
       this.formMore(row.jgcxbz,false)
       // this.$set(this.tableData[index], "splx", [this.tableData[index].splx])
@@ -1314,6 +1322,13 @@ export default {
       if(this.uFormTitle.cxlxid=='07'){
         data.jssj=this.editForm.jssj
         data.kssj=this.editForm.kssj
+      }
+      if(this.uFormTitle.cxlxid=='D0'){
+        data.hdspbm=this.uFormTitle.hdspbm
+        data.checkhycx=false
+        data.jssj=this.editForm.jssj
+        data.kssj=this.editForm.kssj
+        data.pxzsl=this.uFormTitle.pxzsl
       }
 
       CxdUpdate(data).then((res)=>{
