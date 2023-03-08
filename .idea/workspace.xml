@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="促销" />
+    <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="07促销">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +82,7 @@
       <workItem from="1678096739181" duration="99000" />
       <workItem from="1678152783629" duration="19566000" />
       <workItem from="1678186988562" duration="3772000" />
-      <workItem from="1678238712740" duration="7618000" />
+      <workItem from="1678238712740" duration="12362000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1677751239964</created>
@@ -199,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678246856429</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="07促销">
+      <created>1678246928466</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678246928466</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +256,7 @@
     <MESSAGE value="Dolock" />
     <MESSAGE value="调价" />
     <MESSAGE value="促销" />
-    <option name="LAST_COMMIT_MESSAGE" value="促销" />
+    <MESSAGE value="07促销" />
+    <option name="LAST_COMMIT_MESSAGE" value="07促销" />
   </component>
 </project>

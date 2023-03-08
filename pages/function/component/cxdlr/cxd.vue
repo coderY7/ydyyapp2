@@ -757,6 +757,7 @@
                              v-model="uFormModel.sjinfo[0].sjbh"
                              :localdata="sjlist"
                              :clear="false"
+                             @change="xzsjhtchange"
             ></uni-data-select>
             <uni-icons custom-prefix="iconfont" type="icon-yuyin"
                        :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
@@ -780,6 +781,7 @@
                 v-model="uFormModel.dmkdlxid"
                 :localdata="dmkdlxidlist"
                 :clear="false"
+                @change="zglxchange"
             ></uni-data-select>
             <uni-icons custom-prefix="iconfont" type="icon-yuyin"
                        :color="doingId=='num'?'#358CC9':'#7A7A7A'" size="19" v-if="isVoiceMode"></uni-icons>
@@ -940,6 +942,7 @@ export default {
       data2:[],//fdlist
       fdlist:[],
       sjlist:[],//商家合同
+      xzsj:'',
       x: 400,
       y: 300,
       ifpage: true,
@@ -1305,7 +1308,11 @@ console.log('当前商品需要的信息',this.uFormModel)
         this.uFormModel.cxzkl=''
       }
     },
+    zglxchange(e){
+      console.log('折扣类型',e);
+      this.uFormModel.dmkdlxid=e
 
+    },
     //折扣类型
     zklx(){
       let dmkdlxidlist=uni.getStorageSync('basic').KDFSINFO
@@ -1334,6 +1341,17 @@ console.log('当前商品需要的信息',this.uFormModel)
     ischeckcbj(e){
       this.uFormModel.checkcbj=e.detail.value
     },
+
+    xzsjhtchange(e){
+      console.log('合同类型',e);
+      this.sjlist.forEach((item,index)=>{
+        if(item.value==e){
+          console.log(item)
+          this.uFormModel.sjinfo[0].sjbh=item.value
+          this.uFormModel.sjinfo[0].sjmc=item.text
+        }
+      })
+    },
     //商家合同
     SjhtChange(){
       let data={
@@ -1344,15 +1362,15 @@ console.log('当前商品需要的信息',this.uFormModel)
       }
       Cxdsjinfo(data).then((res)=>{
         if(res.error_code==0){
-          this.sjlist=res.data
           let sjlist = []
-          this.sjlist.forEach((item,i)=>{
+          res.data.forEach((item,i)=>{
             sjlist.push({
-              "value":  this.sjlist[i].sjbh,
-              "text":  this.sjlist[i].sjmc,
+              "value":  res.data[i].sjbh,
+              "text":  res.data[i].sjmc,
             })
           })
           this.sjlist=sjlist
+          console.log(this.sjlist)
           this.uFormModel.sjinfo[0].sjbh=this.sjlist[0].value
           this.uFormModel.sjinfo[0].sjmc=this.sjlist[0].text
 

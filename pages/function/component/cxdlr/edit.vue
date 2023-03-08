@@ -646,6 +646,8 @@
               v-model="editForm.dmkdlxid"
               :localdata="dmkdlxidlist"
               :clear="false"
+              @change="zglxchange"
+
           ></uni-data-select>
         </u-form-item>
 
@@ -654,6 +656,7 @@
               v-model="editForm.sjinfo[0].sjbh"
               :localdata="sjlist"
               :clear="false"
+              @change="xzsjhtchange"
           ></uni-data-select>
 
         </u-form-item>
@@ -897,6 +900,10 @@ export default {
     this.jglxdata=jglist
   },
   methods: {
+    zglxchange(e){
+      console.log('折扣类型',e);
+      this.editForm.dmkdlxid=e
+    },
     //折扣类型
     zklx(){
       let dmkdlxidlist=uni.getStorageSync('basic').KDFSINFO
@@ -943,6 +950,16 @@ export default {
         this.editForm.jglxid=this.editForm.jglxid.toString()
       }
     },
+    xzsjhtchange(e){
+      console.log('合同类型',e);
+      this.sjlist.forEach((item,index)=>{
+        if(item.value==e){
+          console.log(item)
+          this.editForm.sjinfo[0].sjbh=item.value
+          this.editForm.sjinfo[0].sjmc=item.text
+        }
+      })
+    },
     //商家合同
     SjhtChange(){
       let data={
@@ -957,13 +974,14 @@ export default {
           this.editForm.sjinfo[0].sjbh=res.data[0].sjbh
           this.editForm.sjinfo[0].sjmc=res.data[0].sjmc
 
-          //this.sjlist=res.data
+          let sjlist=[]
           res.data.forEach((item,i)=>{
-            this.sjlist.push({
+            sjlist.push({
               "value":res.data[i].sjbh,
               "text":res.data[i].sjmc,
             })
           })
+          this.sjlist=sjlist
           console.log(this.sjlist)
 
         }
@@ -1286,8 +1304,8 @@ export default {
       if(this.uFormTitle.cxlxid=='07'){
         data.jssj=this.editForm.jssj
         data.kssj=this.editForm.kssj
-
       }
+
       CxdUpdate(data).then((res)=>{
         console.log('保存商品修改',res);
         if(res.error_code==0){
