@@ -1162,7 +1162,7 @@ export default {
 
       this.editForm.cxjg=row.cxjg
 
-      //this.editForm.cxzkl=row.cxzkl //折扣率
+      this.editForm.cxzkl=row.cxzkl //折扣率
       this.editForm.fdbm=row.fdbm
       //this.editForm.gwjid=row.gwjid
       this.editForm.kcbjbz=row.kcbjbz
@@ -1171,7 +1171,7 @@ export default {
       this.editForm.cxlxid=row.cxlxid
       this.editForm.cxsl=row.cxsl //最小数量
       this.editForm.slxx=row.cxsl //最小数量
-      this.editForm.slsx=row.cxsl2 //最小数量
+      this.editForm.slsx=row.cxsl2 //最大数量
       if(row.cxlxid=='08'){
         this.editForm.slsx=row.cxsl //限销数量
       }
@@ -1192,6 +1192,8 @@ export default {
       this.editForm.jssj=row.zzsj
       this.editForm.kssj=row.kssj
 
+      this.editForm.zssl=row.zssl
+      this.editForm.zsspbm=row.zsspbm
 
       this.formMore(row.jgcxbz,false)
       // this.$set(this.tableData[index], "splx", [this.tableData[index].splx])
