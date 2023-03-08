@@ -52,7 +52,7 @@
             <u-form-item label="开始时间" :labelWidth="74" prop="kssj" v-show="doingindex>=4">
               <uni-datetime-picker
                   type="datetime"
-                  v-model="uFormModel.start"
+                  v-model="uFormTitle.StartRQ"
                   @change="startdate"
               />
 
@@ -62,7 +62,7 @@
 
               <uni-datetime-picker
                   type="datetime"
-                  v-model="uFormModel.end"
+                  v-model="uFormTitle.StartRQ"
                   @change="enddate"
               />
 
@@ -828,7 +828,7 @@
     <view class="box-content" v-if="!ifpage">
       <edit :title="editTitleObj" :tableData="tableData" :state="state" @editSave="editSave"
             :uFormTitle="uFormTitle"
-            ref="editDetail" @delgoods="delgoods">
+            ref="editDetail" @delgoods="delgoods" @updata="updata">
       </edit>
     </view>
 
@@ -1183,123 +1183,129 @@ export default {
     // #endif
   },
   onShow() {
-    //条件判断  this.uFormTitle.cxlxid
-    if(this.uFormTitle.cxlxid=='01'){
-      this.uFormModel.slxx=''
-      this.uFormModel.slsx=''
-      this.uFormModel.zsspbm=''
-      this.uFormModel.zssl=''
-    }
-    if(this.uFormTitle.cxlxid=='02'||this.uFormTitle.cxlxid=='18'||this.uFormTitle.cxlxid=='28'||this.uFormTitle.cxlxid=='07'||this.uFormTitle.cxlxid=='20'||this.uFormTitle.cxlxid=='30'){
-      this.uFormModel.cxjg=''
-    }
-    if(this.uFormTitle.cxlxid=='03'||this.uFormTitle.cxlxid=='19'||this.uFormTitle.cxlxid=='29'||this.uFormTitle.cxlxid=='06'||this.uFormTitle.cxlxid=='21'||this.uFormTitle.cxlxid=='31'){
-      this.uFormModel.cxzkl=''
-    }
-    if(this.uFormTitle.cxlxid=='04'){
-      this.uFormModel.slxx=''
-      this.uFormModel.slsx=''
-      this.uFormModel.cxjg=''
-    }
-    if(this.uFormTitle.cxlxid=='05'){
-      this.uFormModel.slxx=''
-      this.uFormModel.slsx=''
-      this.uFormModel.cxzkl=''
-    }
-    if(this.uFormTitle.cxlxid=='B1'){
-      this.uFormModel.slxx=''
-      this.uFormModel.slsx=''
-      this.uFormModel.cxjg=''
-    }
-    if(this.uFormTitle.cxlxid=='B2'){
-      this.uFormModel.slxx=''
-      this.uFormModel.slsx=''
-      this.uFormModel.cxzkl=''
-    }
-
-    if(this.uFormTitle.cxlxid=='08'){
-      this.uFormModel.cxjg=''
-      this.uFormModel.slsx=''
-    }
-    if(this.uFormTitle.cxlxid=='09'){
-      this.uFormModel.slsx=''
-      this.uFormModel.cxzkl=''
-    }
-    if(this.uFormTitle.cxlxid=='10'||this.uFormTitle.cxlxid=='11'){
-      this.uFormModel.cxzk1=''
-      this.uFormModel.cxzk2=''
-      this.uFormModel.cxzk3=''
-      this.uFormModel.cxzk4=''
-      this.uFormModel.cxzk5=''
-      this.uFormModel.cxzk6=''
-      this.uFormModel.cxzk7=''
-      this.uFormModel.xspsl=''
-    }
-    if(this.uFormTitle.cxlxid=='A0'){
-      this.uFormModel.mmje=''
-      this.uFormModel.cxjg=''
-      this.uFormModel.slsx=''
-      this.uFormModel.zssl=''
-    }
-    if(this.uFormTitle.cxlxid=='C1'){
-      this.uFormModel.cxzkl=''
-    }
-    if(this.uFormTitle.cxlxid=='A1'){
-      this.uFormModel.mmje=''
-      this.uFormModel.cxzkl=''
-    }
-    if(this.uFormTitle.cxlxid=='A2'){
-      this.uFormModel.mmje=''
-      this.uFormModel.cxjg=''
-      this.uFormModel.issum=false
-
-    }
-    if(this.uFormTitle.cxlxid=='A3'){
-      this.uFormModel.mmje=''
-      this.uFormModel.cxjg=''
-      this.uFormModel.sxje=''
-
-    }
-    if(this.uFormTitle.cxlxid=='A4'){
-      this.uFormModel.mmje=''
-      this.uFormModel.cxjg=''
-      this.uFormModel.gwjid=''
-      this.uFormModel.issum=false
-      this.uFormModel.zssl=''
-
-    }
-    if(this.uFormTitle.cxlxid=='A5'){
-      this.uFormModel.mmje=''
-      this.uFormModel.slsx=''
-      this.uFormModel.zssl=''
-    }
-    if(this.uFormTitle.cxlxid=='D0'){
-      this.uFormModel.zssl=''
-      this.uFormModel.cxjg=''
-      this.uFormModel.slsx=''
-    }
-    if(this.uFormTitle.cxlxid=='22'){
-      this.uFormModel.issun=false
-      this.uFormModel.cxjg=''
-      this.uFormModel.slsx=''
-    }
-    if(this.uFormTitle.cxlxid=='23'){
-      this.uFormModel.isbirth=false
-      this.uFormModel.cxjg=''
-      this.uFormModel.slsx=''
-    }
-    if(this.uFormTitle.cxlxid=='24'){
-      this.uFormModel.slxx=''
-      this.uFormModel.cxjg=''
-      this.uFormModel.slsx=''
-    }
-    if(this.uFormTitle.cxlxid=='25'){
-      this.uFormModel.cxzkl=''
-    }
+    this.uFormTitle.StartRQ = dayjs().format("YYYY-MM-DD")
+    this.uFormTitle.EndRQ = dayjs().format("YYYY-MM-DD")
+    this.currentdata()
 
 console.log('当前商品需要的信息',this.uFormModel)
   },
   methods: {
+    currentdata(){
+      //条件判断  this.uFormTitle.cxlxid
+      if(this.uFormTitle.cxlxid=='01'){
+        this.uFormModel.slxx=''
+        this.uFormModel.slsx=''
+        this.uFormModel.zsspbm=''
+        this.uFormModel.zssl=''
+      }
+      if(this.uFormTitle.cxlxid=='02'||this.uFormTitle.cxlxid=='18'||this.uFormTitle.cxlxid=='28'||this.uFormTitle.cxlxid=='07'||this.uFormTitle.cxlxid=='20'||this.uFormTitle.cxlxid=='30'){
+        this.uFormModel.cxjg=''
+      }
+      if(this.uFormTitle.cxlxid=='03'||this.uFormTitle.cxlxid=='19'||this.uFormTitle.cxlxid=='29'||this.uFormTitle.cxlxid=='06'||this.uFormTitle.cxlxid=='21'||this.uFormTitle.cxlxid=='31'){
+        this.uFormModel.cxzkl=''
+      }
+      if(this.uFormTitle.cxlxid=='04'){
+        this.uFormModel.slxx=''
+        this.uFormModel.slsx=''
+        this.uFormModel.cxjg=''
+      }
+      if(this.uFormTitle.cxlxid=='05'){
+        this.uFormModel.slxx=''
+        this.uFormModel.slsx=''
+        this.uFormModel.cxzkl=''
+      }
+      if(this.uFormTitle.cxlxid=='B1'){
+        this.uFormModel.slxx=''
+        this.uFormModel.slsx=''
+        this.uFormModel.cxjg=''
+      }
+      if(this.uFormTitle.cxlxid=='B2'){
+        this.uFormModel.slxx=''
+        this.uFormModel.slsx=''
+        this.uFormModel.cxzkl=''
+      }
+
+      if(this.uFormTitle.cxlxid=='08'){
+        this.uFormModel.cxjg=''
+        this.uFormModel.slsx=''
+      }
+      if(this.uFormTitle.cxlxid=='09'){
+        this.uFormModel.slsx=''
+        this.uFormModel.cxzkl=''
+      }
+      if(this.uFormTitle.cxlxid=='10'||this.uFormTitle.cxlxid=='11'){
+        this.uFormModel.cxzk1=''
+        this.uFormModel.cxzk2=''
+        this.uFormModel.cxzk3=''
+        this.uFormModel.cxzk4=''
+        this.uFormModel.cxzk5=''
+        this.uFormModel.cxzk6=''
+        this.uFormModel.cxzk7=''
+        this.uFormModel.xspsl=''
+      }
+      if(this.uFormTitle.cxlxid=='A0'){
+        this.uFormModel.mmje=''
+        this.uFormModel.cxjg=''
+        this.uFormModel.slsx=''
+        this.uFormModel.zssl=''
+      }
+      if(this.uFormTitle.cxlxid=='C1'){
+        this.uFormModel.cxzkl=''
+      }
+      if(this.uFormTitle.cxlxid=='A1'){
+        this.uFormModel.mmje=''
+        this.uFormModel.cxzkl=''
+      }
+      if(this.uFormTitle.cxlxid=='A2'){
+        this.uFormModel.mmje=''
+        this.uFormModel.cxjg=''
+        this.uFormModel.issum=false
+
+      }
+      if(this.uFormTitle.cxlxid=='A3'){
+        this.uFormModel.mmje=''
+        this.uFormModel.cxjg=''
+        this.uFormModel.sxje=''
+
+      }
+      if(this.uFormTitle.cxlxid=='A4'){
+        this.uFormModel.mmje=''
+        this.uFormModel.cxjg=''
+        this.uFormModel.gwjid=''
+        this.uFormModel.issum=false
+        this.uFormModel.zssl=''
+
+      }
+      if(this.uFormTitle.cxlxid=='A5'){
+        this.uFormModel.mmje=''
+        this.uFormModel.slsx=''
+        this.uFormModel.zssl=''
+      }
+      if(this.uFormTitle.cxlxid=='D0'){
+        this.uFormModel.zssl=''
+        this.uFormModel.cxjg=''
+        this.uFormModel.slsx=''
+      }
+      if(this.uFormTitle.cxlxid=='22'){
+        this.uFormModel.issun=false
+        this.uFormModel.cxjg=''
+        this.uFormModel.slsx=''
+      }
+      if(this.uFormTitle.cxlxid=='23'){
+        this.uFormModel.isbirth=false
+        this.uFormModel.cxjg=''
+        this.uFormModel.slsx=''
+      }
+      if(this.uFormTitle.cxlxid=='24'){
+        this.uFormModel.slxx=''
+        this.uFormModel.cxjg=''
+        this.uFormModel.slsx=''
+      }
+      if(this.uFormTitle.cxlxid=='25'){
+        this.uFormModel.cxzkl=''
+      }
+    },
+
     //折扣类型
     zklx(){
       let dmkdlxidlist=uni.getStorageSync('basic').KDFSINFO
@@ -1863,7 +1869,9 @@ console.log('当前商品需要的信息',this.uFormModel)
       })
     },
 
-
+    updata(){
+      this.getList()
+    },
     //获取该单号已上传的商品
     getList() {
       let dataes = {

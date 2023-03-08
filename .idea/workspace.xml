@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="促销">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +81,8 @@
       <workItem from="1678096668000" duration="55000" />
       <workItem from="1678096739181" duration="99000" />
       <workItem from="1678152783629" duration="19566000" />
-      <workItem from="1678186988562" duration="3325000" />
+      <workItem from="1678186988562" duration="3772000" />
+      <workItem from="1678238712740" duration="7308000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1677751239964</created>
@@ -180,7 +182,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678189130804</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="促销">
+      <created>1678190326899</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1678190326899</updated>
+    </task>
+    <task id="LOCAL-00016" summary="促销">
+      <created>1678190341365</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678190341365</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

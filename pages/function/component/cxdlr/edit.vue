@@ -782,43 +782,38 @@ export default {
         bysl: "",
         splx: false,//赠送商品
         jgcxbz: "",//供价类型
-
         allsmm: true,
-        bcbl: '1',
+        bcbl: 1,
         checkcbj: false,
         checkdm: false,
         cxjg: '',
 
+        cxzk1:'',//1
+        cxzk2:'',
+        cxzk3:'',
+        cxzk4:'',
+        cxzk5:'',
+        cxzk6:'',
+        cxzk7:'',
         cxzkl: '',
         dmkdlxid: "",
-        dmnewkdl: '1',
+        dmnewkdl: 1,
         dmpjjj: "",
         dmsjbh: "",
-        gwjid: "",
         isbirth: false,
-        issum: false,
-        mmje: 0,
+
         nsjg: '',
-        saveStatus: true,
+        saveStatus: false,
         sjinfo: [
           {
             sjbh: "",
             sjmc: ""
           }
         ],
-        slsx: 0,
-        slxx: 0,
         spbm: "",
         spmc: "",
         spsmm: "",
-        sxje: 0,
         type: "cxUpdate",
-        xsps: [
-          "X"
-        ],
-        zssl: 0,
-        zsspbm: "X"
-
 
       },
       editRules:{
@@ -960,15 +955,17 @@ export default {
         if(res.error_code==0){
           //默认值
           this.editForm.sjinfo[0].sjbh=res.data[0].sjbh
-          this.sjlist=res.data
-          let sjlist = []
-          this.sjlist.forEach((item,i)=>{
-            sjlist.push({
-              "value":  this.sjlist[i].sjbh,
-              "text":  this.sjlist[i].sjmc,
+          this.editForm.sjinfo[0].sjmc=res.data[0].sjmc
+
+          //this.sjlist=res.data
+          res.data.forEach((item,i)=>{
+            this.sjlist.push({
+              "value":res.data[i].sjbh,
+              "text":res.data[i].sjmc,
             })
           })
-          this.sjlist=sjlist
+          console.log(this.sjlist)
+
         }
       })
       console.log(this.editForm)
@@ -1135,6 +1132,8 @@ export default {
       this.editForm.remark=row.remark
       this.editForm.spmc=row.spmc
       this.editForm.spbm=row.spbm
+      this.editForm.spsmm=row.spsmm
+
       this.editForm.userid=row.userid
       this.editForm.fdssbl=row.fdssbl
       this.editForm.fdsjbh=row.fdsjbh
@@ -1142,9 +1141,9 @@ export default {
 
       this.editForm.cxjg=row.cxjg
 
-      this.editForm.cxzkl=row.cxzkl //折扣率
+      //this.editForm.cxzkl=row.cxzkl //折扣率
       this.editForm.fdbm=row.fdbm
-      this.editForm.gwjid=row.gwjid
+      //this.editForm.gwjid=row.gwjid
       this.editForm.kcbjbz=row.kcbjbz
       this.editForm.pfjg=row.pfjg
       this.editForm.yjkdlxid=row.yjkdlxid
@@ -1152,10 +1151,21 @@ export default {
       this.editForm.cxsl=row.cxsl //最小数量
       this.editForm.cxsl2=row.cxsl2 //最大数量
       this.editForm.yxsl=row.yxsl
-      this.editForm.zssl=row.zssl
-      this.editForm.zsspbm=row.zsspbm
+      //this.editForm.zssl=row.zssl
+      //this.editForm.zsspbm=row.zsspbm
 
       this.editForm.dmpjjj=row.dmpjjj
+      this.editForm.cxzk1=row.byjg2
+      this.editForm.cxzk2=row.byjg2
+      this.editForm.cxzk3=row.byjg3
+      this.editForm.cxzk4=row.byjg4
+      this.editForm.cxzk5=row.byjg5
+      this.editForm.cxzk6=row.byjg6
+      this.editForm.cxzk7=row.byjg6
+
+      this.editForm.jssj=row.zzsj
+      this.editForm.kssj=row.kssj
+
 
       this.formMore(row.jgcxbz,false)
       // this.$set(this.tableData[index], "splx", [this.tableData[index].splx])
@@ -1188,6 +1198,10 @@ export default {
     },
     // 保存商品
     editDetailSave() {
+      console.log(this.sjlist)
+
+      this.editForm.sjinfo[0].sjbh=this.sjlist[0].value
+      this.editForm.sjinfo[0].sjmc=this.sjlist[0].text
       //this.$refs.uForm.validate().then(resf => {
       this.uploadarr = []
       // let xx = Number(this.tableData[this.tableIndex].rq.split("T")[0].split("-")[2]) + this.serchGoodsData.bzqts
@@ -1195,7 +1209,7 @@ export default {
       this.uploadarr.push({
 
         "guid": this.tableData[this.tableIndex].recordid,
-        "sppc":'',
+
         "bhjg":this.editForm.bhjg,
         "bqjg":this.tableData[this.tableIndex].bqjg,
         "fdssbl":this.editForm.fdssbl,//分摊比率
@@ -1236,7 +1250,7 @@ export default {
         dmpjjj: this.editForm.dmpjjj,//特供进价
         dmsjbh:this.editForm.sjbh,//特供商家编号
         nsjg: this.editForm.nsjg,//零售价格
-        saveStatus: true,
+        saveStatus: this.editForm.saveStatus,
         sjinfo: [{
           sjbh: this.editForm.sjinfo[0].sjbh,
           sjmc: this.editForm.sjinfo[0].sjmc
@@ -1269,8 +1283,18 @@ export default {
         weeklist:'',
         "list": this.uploadarr,
       }
+      if(this.uFormTitle.cxlxid=='07'){
+        data.jssj=this.editForm.jssj
+        data.kssj=this.editForm.kssj
+
+      }
       CxdUpdate(data).then((res)=>{
         console.log('保存商品修改',res);
+        if(res.error_code==0){
+          this.$emit("updata")
+          this.stateDetail = false
+
+        }
       })
     },
 
