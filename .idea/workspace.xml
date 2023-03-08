@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="30促销">
+    <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="换购">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/cxd.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/cxdlr/edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/network/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +81,7 @@
       <workItem from="1678096739181" duration="99000" />
       <workItem from="1678152783629" duration="19566000" />
       <workItem from="1678186988562" duration="3772000" />
-      <workItem from="1678238712740" duration="20463000" />
+      <workItem from="1678238712740" duration="22283000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1677751239964</created>
@@ -231,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678261083290</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="换购">
+      <created>1678265593849</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1678265593849</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +285,7 @@
     <MESSAGE value="促销" />
     <MESSAGE value="07促销" />
     <MESSAGE value="30促销" />
-    <option name="LAST_COMMIT_MESSAGE" value="30促销" />
+    <MESSAGE value="换购" />
+    <option name="LAST_COMMIT_MESSAGE" value="换购" />
   </component>
 </project>

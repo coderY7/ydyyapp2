@@ -112,6 +112,20 @@ export const CxdCheck = (params, config = {}) => http.post("/mzsale/web/cx/check
 export const Dolock = (params, config = {}) => http.post("/mzsale/web/common/order/dolock", params, config)
 
 
+//冲账单
+//查询批发单可被冲明细
+export const  pfczdQuery= (params, config = {}) => http.post("/mzsale/web/pfczd/details/query", params,config)
+//销售冲账单明细转入修改编辑
+export const  pfczdEdit= (params, config = {}) => http.post("/mzsale/web/pfczd/go/edit", params,config)
+//销售冲账单审核上账
+export const  pfczdCheck= (params, config = {}) => http.post("/mzsale/web/pfczd/check", params,config)
+//销售冲账单整单删除
+export const  pfczdDelete= (params, config = {}) => http.post("/mzsale/web/pfczd/delete", params,config)
+//删除销售冲账单选中明细
+export const  pfczdLine= (params, config = {}) => http.post("/mzsale/web/pfczd/delete/line", params,config)
+//新增批发用户获取编号
+export const  pfczdYwynew= (params, config = {}) => http.post("/mzsale/web/pfd/ywy/new", params,config)
+
 
 // 查询单据 Ai 参数配置
 export const AiSetup = (params, config = {}) => http.post("/mzsale/web/common/order/ai/setup", params, config)
