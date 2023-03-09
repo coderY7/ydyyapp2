@@ -726,7 +726,25 @@
 				}
 			}
 		},
-
+		
+		
+		//销售冲账单
+		{
+			"path": "pages/function/component/pfczd/xsczd",
+			"style": {
+				"app-plus": {
+					"scrollIndicator": "all"
+				}
+			}
+		},
+		{
+			"path": "pages/function/component/pfczd/xsczxd",
+			"style": {
+				"app-plus": {
+					"scrollIndicator": "all"
+				}
+			}
+		},
 
 		//analysis.....分析....................
 		{
@@ -941,7 +959,8 @@
 				}
 			}
 		}
-	],
+	    
+    ],
 	"globalStyle": {
 		// "navigationBarBackgroundColor": "#000000",
 		"navigationBarTextStyle": "black",

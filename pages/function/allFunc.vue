@@ -158,6 +158,10 @@
 					<image class="" src="@/static/images/spcg.png" mode="heightFix"></image>
 					<view class="zi">商品促销单</view>
 				</view>
+				<view class="functionView" @tap="wherego('pfczd')" :style="{backgroundColor: getColor('pfczd')}">
+					<image class="" src="@/static/images/spcg.png" mode="heightFix"></image>
+					<view class="zi">销售冲账单</view>
+				</view>
 			</view>
 		</view>
 
@@ -290,6 +294,8 @@
 					urls = "/pages/function/component/spbjd/spbjd"
 				} else if (name == "cxdlr") {
 					urls = "/pages/function/component/cxdlr/cxdcx"
+				}else if (name == "pfczd") {
+					urls = "/pages/function/component/pfczd/xsczd"
 				}
 				return urls
 			},
