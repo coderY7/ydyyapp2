@@ -10,15 +10,10 @@
       <view class="center">
         <text>被冲账单</text>
       </view>
-<!--      <view class="right">-->
-<!--        <u-button class="icon-button guideJS1" text="" throttleTime="2000" @tap="newOrder">-->
-<!--          <uni-icons type="plusempty" size="30" color="#fff"></uni-icons>-->
-<!--        </u-button>-->
-<!--      </view>-->
     </view>
-    <view class="box-content">
+    <view class="box-content" >
       <!-- 查询表头 -->
-      <view class="form-card">
+      <view v-if="!czdmx" class="form-card">
         <view class="" v-for="(v,i) in queryData">
           <view class="view-flex" v-if="v.type=='开始DATE'">
             <text class="form-left-text">{{v.colname}}</text>
@@ -76,9 +71,8 @@
           <uni-icons type="bottom" size="19" color="#3386c4" v-else></uni-icons>
         </view>
       </view>
-
       <!-- 查询后的 内容 -->
-      <view class="foldGroup">
+      <view v-if="!czdmx" class="foldGroup">
         <view class="fold-title" v-for="(v,i) in tableData" @tap="tolook(v)">
           <view class="fold-title-t fold-title-flex-start">
             <text>{{v.批发单号}}</text>
@@ -127,8 +121,6 @@
 
         </view>
       </view>
-
-
       <!-- 弹窗。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。 -->
       <u-popup :show="popupShow" mode="center" class="u-popup-center" zIndex="5000">
         <scroll-view style="max-height: 60vh;" scroll-y="true">
@@ -149,13 +141,17 @@
       </u-popup>
       <u-toast ref="uToast"></u-toast>
 
-
+      <view v-if="czdmx">
+        <bczdmx :curvedata="curvedata"></bczdmx>
+      </view>
     </view>
+
   </view>
 </template>
 
 <script>
 import dayjs from 'dayjs';
+import bczdmx from "./bczdmx";
 import {
   Condition,
   Basic,
@@ -165,7 +161,7 @@ import {
 import {pfczdQuery} from "../../../../network/api";
 export default {
   components: {
-
+    bczdmx
   },
   data() {
     return {
@@ -177,8 +173,10 @@ export default {
       popupShow:false,
       selectData:[],
       checkboxValue:[],
+      czdmx:false,
 
       tableData:[],
+      curvedata:'',//当前批发单号数据
     }
   },
   onLoad(option) {
@@ -332,7 +330,10 @@ console.log(option)
          username:uni.getStorageSync('userinfo').erp_username
        }
         pfczdQuery(data).then((res)=>{
-          console.log('当前批发单号明细',res);
+
+          this.czdmx=true
+          console.log('当前批发单号明细',res.data);
+          this.curvedata=res.data
         })
       }
 
