@@ -745,6 +745,14 @@
 				}
 			}
 		},
+		{
+			"path": "pages/function/component/pfczd/bczd",
+			"style": {
+				"app-plus": {
+					"scrollIndicator": "all"
+				}
+			}
+		},
 
 		//analysis.....分析....................
 		{

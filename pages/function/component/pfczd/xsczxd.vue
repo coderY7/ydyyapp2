@@ -48,24 +48,36 @@
                        v-model="uFormTitle.sjbh">
               </u-input>
             </u-form-item>
-            <u-form-item label="报损仓库" :labelWidth="76" prop="ckbh"
+
+            <u-form-item label="被冲单号" :labelWidth="76" prop="sjbh" @tap="bcdh()">
+              <u-input placeholder="请选择被冲单号" disabled
+                       :disabledColor="state=='pladd'||state=='edit'||state=='look'||state=='check'?'#F5F7FA':'#fff'"
+                       v-model="uFormTitle.pfdbh">
+              </u-input>
+            </u-form-item>
+
+            <u-form-item label="出货仓库" :labelWidth="76" prop="ckbh"
                          @tap="queryMore(false,'','CKINFO','ckbh')">
-              <u-input placeholder="请选择报损仓库" disabled
+              <u-input placeholder="请选择出货仓库" disabled
                        :disabledColor="state=='pladd'||state=='edit'||state=='look'||state=='check'?'#F5F7FA':'#fff'"
                        v-model="uFormTitle.ckbh">
               </u-input>
             </u-form-item>
+
             <u-form-item label="退换类型" :labelWidth="76" prop="tklx" @tap="queryMore(false,'','TKLX','tklx')">
               <u-input placeholder="请选择退换类型" disabled
                        :disabledColor="state=='pladd'||state=='edit'||state=='look'||state=='check'?'#F5F7FA':'#fff'"
                        v-model="uFormTitle.tklx">
               </u-input>
             </u-form-item>
-            <u-form-item label="原始单号" :labelWidth="76" prop="ysdh">
-              <u-input placeholder="请输入原始单号" v-model="uFormTitle.ysdh"
-                       :disabled="state=='look'||state=='check'">
+
+            <u-form-item label="VIP客户" :labelWidth="76" prop="tklx" @tap="queryMore(false,'','PFSXX','pfsxx')">
+              <u-input placeholder="请选择VIP客户" disabled
+                       :disabledColor="state=='pladd'||state=='edit'||state=='look'||state=='check'?'#F5F7FA':'#fff'"
+                       v-model="uFormTitle.pfsxx">
               </u-input>
             </u-form-item>
+
             <u-form-item label="备注说明" :labelWidth="76" prop="remarks">
               <u-input placeholder="请输入备注说明" v-model="uFormTitle.remarks"
                        :disabled="state=='look'||state=='check'">
@@ -243,7 +255,10 @@ import {
   Sppc,
   GetlistC,
   BsdDosave,
-  OrderNew
+  OrderNew,
+
+
+  GetlistF,
 } from "@/network/api.js";
 import xuanSwitch from "@/components/xuan-switch/xuan-switch.vue";
 import goodsVoice from '@/components/goodsVoice/goodsVoice';
@@ -266,7 +281,9 @@ export default {
         sjbh: "",
         ckbh: "",
         tklx: "",
+        pfsxx:'',
         ysdh: "",
+        pfdbh:'',//被冲账号
         remarks: ""
       },
       state: "",
@@ -422,6 +439,7 @@ export default {
     let sjVal = ""
     let ckVal = ""
     let tkVal = ""
+    let pfsxxVal=""
     if (option.state == "add") {
       this.editTitleObj = option
     } else if (option.state == "edit" || option.state == "look") {
@@ -433,6 +451,8 @@ export default {
     this.querySj(true, sjVal, "sjbh")
     this.queryMore(true, ckVal, "CKINFO", "ckbh")
     this.queryMore(true, tkVal, "TKLX", "tklx")
+    this.queryMore(true, pfsxxVal, "PFSXX", "pfsxx")
+
   },
   onReady() {
     // 设置状态栏文字颜色为 白色
@@ -444,6 +464,13 @@ export default {
 
   },
   methods: {
+    //被冲账单
+    bcdh(){
+      console.log('跳转被冲账单')
+      uni.navigateTo({
+        url: `/pages/function/component/pfczd/bczd?djbh=${this.uFormTitle.djbh}`
+      })
+    },
     // OCR表格识别............................................................
     toOcr() {
       this.ocrShow = true
@@ -644,6 +671,8 @@ export default {
                 this.uFormTitle[fixid] = `${res.data[0].ckbmid}-${res.data[0].ckmc}`
               } else if (type == "TKLX") {
                 this.uFormTitle[fixid] = `${res.data[0].tklxid}-${res.data[0].tklxmc}`
+              } else if (type == "PFSXX") {
+                this.uFormTitle[fixid] = `${res.data[0].pfsbm}-${res.data[0].pfsmc}`
               }
             } else {
               this.selectId = fixid
@@ -660,6 +689,11 @@ export default {
                   this.selectData.push({
                     "id": res.data[i].tklxid,
                     "name": res.data[i].tklxmc
+                  })
+                }else if (type == "PFSXX") {
+                  this.selectData.push({
+                    "id": res.data[i].pfsbm,
+                    "name": res.data[i].pfsmc
                   })
                 }
               }
@@ -907,6 +941,18 @@ export default {
         }
       }).catch((err) => {
         console.log(err)
+      })
+    },
+    FGetlist(){
+      let data={
+        "access_token": uni.getStorageSync("access_token"),
+        exeStr:'',
+        "djtype": "PFCZD",
+        "fdbh": uni.getStorageSync("fdbh"),
+        "userid": uni.getStorageSync("userid"),
+      }
+      GetlistF(data).then((res)=>{
+        console.log('被冲单号查询',res);
       })
     },
     //查找表格列(新增)。。。
