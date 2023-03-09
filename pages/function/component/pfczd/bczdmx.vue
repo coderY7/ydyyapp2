@@ -21,10 +21,10 @@
               </view>
               <view class="unit3box">
                 <view class="title">商品条码:
-                  <span style="color: red;">{{item['商品条码']}}</span>
+                  <span >{{item['商品条码']}}</span>
                 </view>
                 <view class="title">商品编码:
-                  <span style="color: red;">{{item['商品编码']}}</span>
+                  <span >{{item['商品编码']}}</span>
                 </view>
               </view>
 
