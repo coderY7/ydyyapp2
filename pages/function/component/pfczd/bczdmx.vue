@@ -7,7 +7,7 @@
       <checkbox-group class="block" @change="changeCheckbox">
         <block v-for="item in curvedata" :key="item['商品条码']">
           <view class="collshop-cen-item">
-            <checkbox  style="margin: auto 0" v-if="edit" :value="JSON.stringify(item)"
+            <checkbox  style="margin: auto 0"  :value="JSON.stringify(item)"
                        :checked="checkedArr.includes(JSON.stringify(item))"
                        :class="{'checked':checkedArr.includes(JSON.stringify(item))}"></checkbox>
 
@@ -44,16 +44,19 @@
       </checkbox-group>
     </view>
     <view  class="collshop-bot">
-      <checkbox-group @change="allChoose" v-if="edit">
-        <label>
-          <checkbox value="all" :class="{'checked':allChecked}" :checked="allChecked?true:false">
-          </checkbox> 全选
-        </label>
-      </checkbox-group>
+      <view>
+        <checkbox-group @change="allChoose" >
+          <label>
+            <checkbox value="all" :class="{'checked':allChecked}" :checked="allChecked?true:false">
+            </checkbox> 全选
+          </label>
+        </checkbox-group>
+      </view>
 
 
-      <view class="right" @click="hezhang" v-if="edit">合帐</view>
-      <view class="right" @click="shenhe" v-if="!edit">审核</view>
+
+<!--      <view class="right" @click="verify" >合帐</view>-->
+      <view class="right" @click="verify" >确认</view>
     </view>
   </view>
 
@@ -79,7 +82,6 @@ export default {
       result:'',
       bdt:'',
       sumdata:'',
-      edit: true,
 
       checkedArr: [], //复选框选中的值
       allChecked: false //是否全选
@@ -102,7 +104,7 @@ export default {
       e.detail.value.forEach((item)=>{
         curvedata.push(JSON.parse(item))
       })
-     console.log(this.checkedArr)
+     // console.log(this.hzlist)
       // 如果选择的数组中有值，并且长度等于列表的长度，就是全选
       if (this.checkedArr.length > 0 && this.checkedArr.length == this.curvedata.length) {
         this.allChecked = true;
@@ -131,16 +133,21 @@ export default {
             this.checkedArr.forEach((item)=>{
               curvedata.push(JSON.parse(item))
             })
-           
+            // console.log(this.hzlist)
+
           }
         }
       } else {
         // 取消全选
-        this.$emit("send", [])
+       // this.$emit("send", [])
         this.allChecked = false;
         this.checkedArr = [];
       }
     },
+    //确认
+    verify(){
+      console.log('选择的商品',this.hzlist)
+    }
   }
 }
 </script>
@@ -248,6 +255,8 @@ page {
   padding: 0 22rpx;
   box-sizing: border-box;
   background-color: #fff;
+  display: flex;
+  justify-content: space-between;
 }
 
 .collshop-bot checkbox-group {
