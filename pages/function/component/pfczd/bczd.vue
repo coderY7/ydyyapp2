@@ -162,6 +162,7 @@ import {
   OrderNew,
   GetlistF
 } from "@/network/api.js";
+import {pfczdQuery} from "../../../../network/api";
 export default {
   components: {
 
@@ -170,7 +171,7 @@ export default {
     return {
       queryData:[],
       foldMoreShow:true,
-
+      djbh:'',
       selectIndex:-1,
       ifDrawer:"",
       popupShow:false,
@@ -182,6 +183,7 @@ export default {
   },
   onLoad(option) {
 console.log(option)
+    this.djbh=option.djbh
   },
   onReady() {
     // 设置状态栏文字颜色为 白色
@@ -323,9 +325,15 @@ console.log(option)
       }else{
        let data={
          access_token:uni.getStorageSync('access_token'),
-
+         djbh:this.djbh,
+         fdbh:uni.getStorageSync('fdbh'),
+         pfdbh:item['批发单号'],
+         userid:uni.getStorageSync('userid'),
+         username:uni.getStorageSync('userinfo').erp_username
        }
-
+        pfczdQuery(data).then((res)=>{
+          console.log('当前批发单号明细',res);
+        })
       }
 
     },
