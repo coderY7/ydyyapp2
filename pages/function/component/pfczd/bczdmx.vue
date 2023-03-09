@@ -15,8 +15,8 @@
 
               <view class="unit3box" >
                 <view class="title"> <span style="color: #4f99ff;font-size: 18px">{{item['商品名称']}}</span></view>
-                <view class="title">状态:
-                  <span style="color: red;">{{item['状态']}}</span>
+                <view class="title">可冲数量:
+                  <span style="color: red;">{{item['可冲数量']}}</span>
                 </view>
               </view>
               <view class="unit3box">
@@ -30,9 +30,12 @@
 
               <view class="unit3box">
                 <view class="title">冲帐数量:{{item['冲帐数量']}}</view>
-              </view>
-              <view class="unit3box">
                 <view class="title">冲后价格:{{item['冲后价格']}}</view>
+              </view>
+
+              <view class="unit3box">
+                <view class="title">销售数量:{{item['销售数量']}}</view>
+                <view class="title">销售价格:{{item['销售价格']}}</view>
               </view>
 
             </view>
@@ -99,7 +102,7 @@ export default {
       e.detail.value.forEach((item)=>{
         curvedata.push(JSON.parse(item))
       })
-     
+     console.log(this.checkedArr)
       // 如果选择的数组中有值，并且长度等于列表的长度，就是全选
       if (this.checkedArr.length > 0 && this.checkedArr.length == this.curvedata.length) {
         this.allChecked = true;
