@@ -49,12 +49,22 @@
               </u-input>
             </u-form-item>
 
-            <u-form-item label="被冲单号" :labelWidth="76" prop="sjbh" @tap="bcdh()">
+
+            <u-form-item v-if="state=='add'" label="被冲单号" :labelWidth="76" prop="sjbh"  @tap="bcdh()">
               <u-input placeholder="请选择被冲单号" disabled
                        :disabledColor="state=='pladd'||state=='edit'||state=='look'||state=='check'?'#F5F7FA':'#fff'"
                        v-model="uFormTitle.pfdbh">
               </u-input>
             </u-form-item>
+            <u-form-item v-if="state!='add'" label="被冲单号" :labelWidth="76" prop="sjbh">
+              <u-input placeholder="请选择被冲单号" disabled
+                       :disabledColor="state=='pladd'||state=='edit'||state=='look'||state=='check'?'#F5F7FA':'#fff'"
+                       v-model="uFormTitle.pfdbh">
+              </u-input>
+            </u-form-item>
+
+
+
 
             <u-form-item label="出货仓库" :labelWidth="76" prop="ckbh"
                          @tap="queryMore(false,'','CKINFO','ckbh')">
@@ -433,7 +443,10 @@ export default {
       }.bind(this)
     });
     this.uFormTitle.djbh = option.djbh
-    this.uFormTitle.bsfd = option.bsfd
+    this.uFormTitle.pfdbh = option.pfdbh
+
+
+    //this.uFormTitle.bsfd = option.bsfd
 
     this.state = option.state
     let sjVal = ""

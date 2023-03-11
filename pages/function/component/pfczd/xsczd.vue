@@ -344,7 +344,8 @@ export default {
         states="look"
       }
       uni.navigateTo({
-        url: `/pages/function/component/spbsd/bsxd?state=${states}&djbh=${item.报损单编号}&bsfd=${item.报损分店}&bssl=${item.报损数量}&nsje=${item.零售金额}&bsck=${item.报损仓库}&bslx=${item.报损类型}`
+        url: `/pages/function/component/pfczd/xsczxd?state=${states}&djbh=${item.冲账单号
+        }&fdh=${item.分店号}pfsj=${item.报损类型}&pfdbh=${item.被冲单号}`
       });
     },
 
