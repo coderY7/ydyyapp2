@@ -64,11 +64,18 @@
 </template>
 
 <script>
+import {
+  pfczdEdit
+} from "@/network/api.js";
 export default {
   name: "bczdmx",
   props:{
     curvedata: {
       type: Array,
+      default: ''
+    },
+    tablist: {
+      type: Object,
       default: ''
     }
   },
@@ -147,6 +154,44 @@ export default {
     //确认
     verify(){
       console.log('选择的商品',this.hzlist)
+      console.log('111',this.tablist)
+      let test=[]
+      this.hzlist.forEach((item,i)=>{
+        test[i]={
+          czhjg:item['冲后价格'],
+          czhsl:item['冲帐数量'],
+          czqjg:item['销售价格'],
+          czqsl:item['销售数量'],
+          pfdhh:item['销售行号'],
+          spbm:item['商品编码'],
+          spmc:item['商品名称'],
+          spsmm:item['商品条码']
+      }
+      })
+console.log(test)
+      let data={
+        access_token:uni.getStorageSync('access_token'),
+        chck:this.tablist.chck,
+        czyy:'1.录入错误',
+        djbh:this.tablist.djbh,
+        fdbh:uni.getStorageSync('fdbh'),
+        list:test,
+        pfdbh:this.tablist.pfdbh,
+        pfkh:this.tablist.pfkh,
+        remark:'',
+        thlx:this.tablist.thlx,
+        userid:uni.getStorageSync('userid'),
+        vtype:'CHK'
+      }
+      pfczdEdit(data).then((res)=>{
+        console.log('提交',res)
+        if(res.error_code==0){
+          uni.redirectTo({
+            url: `/pages/function/component/pfczd/xsczxd?pfdbh=${this.tablist.pfdbh}&bczdmx=true&djbh=${this.tablist.djbh}`
+          });
+        }
+
+      })
     }
   }
 }

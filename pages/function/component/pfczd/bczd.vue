@@ -142,7 +142,7 @@
       <u-toast ref="uToast"></u-toast>
 
       <view v-if="czdmx">
-        <bczdmx :curvedata="curvedata"></bczdmx>
+        <bczdmx :curvedata="curvedata" :tablist="tablist"></bczdmx>
       </view>
     </view>
 
@@ -177,11 +177,16 @@ export default {
 
       tableData:[],
       curvedata:'',//当前批发单号数据
+      tablist:{}
     }
   },
   onLoad(option) {
-console.log(option)
-    this.djbh=option.djbh
+    console.log(option)
+    this.tablist.djbh=option.djbh
+    this.tablist.chck=option.chck.split('-')[0]
+    this.tablist.pfkh=option.pfkh.split('-')[0]
+    this.tablist.thlx=option.thlx.split('-')[0]
+    console.log(this.tablist);
   },
   onReady() {
     // 设置状态栏文字颜色为 白色
@@ -315,6 +320,7 @@ console.log(option)
     // 编辑单
     tolook(item){
       let states=""
+      this.tablist.pfdbh=item['批发单号']
       if(item.单据状态=="未审核"){
         uni.showToast({
           title: '未审核单据不能进行冲账处理',

@@ -444,7 +444,12 @@ export default {
     });
     this.uFormTitle.djbh = option.djbh
     this.uFormTitle.pfdbh = option.pfdbh
-
+console.log(option)
+    if(option.bczdmx){
+      this.uFormTitle.djbh = option.djbh
+      this.uFormTitle.pfdbh = option.pfdbh
+      this.getList()
+    }
 
     //this.uFormTitle.bsfd = option.bsfd
 
@@ -455,6 +460,7 @@ export default {
     let pfsxxVal=""
     if (option.state == "add") {
       this.editTitleObj = option
+      //this.getList()
     } else if (option.state == "edit" || option.state == "look") {
       this.ifpage = true
       sjVal = option.sjbh
@@ -479,9 +485,14 @@ export default {
   methods: {
     //被冲账单
     bcdh(){
-      console.log('跳转被冲账单')
+      console.log('跳转被冲账单',this.uFormTitle)
+      let djbh=this.uFormTitle.djbh
+      let chck=this.uFormTitle.ckbh
+      let pfkh=this.uFormTitle.pfsxx
+      let thlx=this.uFormTitle.tklx
+
       uni.navigateTo({
-        url: `/pages/function/component/pfczd/bczd?djbh=${this.uFormTitle.djbh}`
+        url: `/pages/function/component/pfczd/bczd?djbh=${djbh}&chck=${chck}&pfkh=${pfkh}&thlx=${thlx}`
       })
     },
     // OCR表格识别............................................................
@@ -1024,6 +1035,8 @@ export default {
       OrderNew(dataes).then((res) => {
         if (res.error_code == 0) {
           this.uFormTitle.djbh = res.djbh
+          this.uFormTitle.pfdbh =''
+
           this.state = "add"
           this.querySj(true, "", "sjbh")
           this.queryMore(true, "", "CKINFO", "ckbh")
