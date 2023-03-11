@@ -101,9 +101,9 @@
             <u-button type="primary" class="my-primary-button" text="删单"
                       :disabled="state=='add'||state=='look'||state=='check'" throttleTime="2000" @tap="deldh">
             </u-button>
-            <u-button type="primary" class="my-primary-button" text="新增明细"
-                      :disabled="state=='look'||state=='check'" throttleTime="2000" @tap="getcolumns">
-            </u-button>
+<!--            <u-button type="primary" class="my-primary-button" text="新增明细"-->
+<!--                      :disabled="state=='look'||state=='check'" throttleTime="2000" @tap="getcolumns">-->
+<!--            </u-button>-->
           </view>
         </view>
       </view>
