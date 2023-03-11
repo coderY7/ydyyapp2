@@ -201,7 +201,7 @@ console.log(test)
         console.log('提交',res)
         if(res.error_code==0){
           uni.redirectTo({
-            url: `/pages/function/component/pfczd/xsczxd?pfdbh=${this.tablist.pfdbh}&bczdmx=true&djbh=${this.tablist.djbh}&state=add`
+            url: `/pages/function/component/pfczd/xsczxd?pfdbh=${this.tablist.pfdbh}&bczdmx=true&djbh=${this.tablist.djbh}&state=edit`
           });
         }
         if(res.error_code=='2'){
@@ -212,7 +212,7 @@ console.log(test)
               if (res.confirm) {
                 pfczdEdit(dataADD).then((add)=>{
                   uni.redirectTo({
-                    url: `/pages/function/component/pfczd/xsczxd?pfdbh=${this.tablist.pfdbh}&bczdmx=true&djbh=${this.tablist.djbh}&state=add`
+                    url: `/pages/function/component/pfczd/xsczxd?pfdbh=${this.tablist.pfdbh}&bczdmx=true&djbh=${this.tablist.djbh}&state=edit`
                   });
                 })
                 console.log('用户点击确定');
