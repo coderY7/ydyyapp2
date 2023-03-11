@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="被冲账单明细">
-      <change beforePath="$PROJECT_DIR$/pages/function/component/pfczd/bczdmx.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/pfczd/bczdmx.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/function/component/pfczd/xsczd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/pfczd/xsczd.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/function/component/pfczd/xsczxd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/pfczd/xsczxd.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,7 @@
       <workItem from="1678361302199" duration="1877000" />
       <workItem from="1678438807970" duration="1142000" />
       <workItem from="1678498480745" duration="7331000" />
-      <workItem from="1678511477172" duration="6774000" />
+      <workItem from="1678511477172" duration="7213000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1677751239964</created>
@@ -346,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678518240579</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="被冲账单明细">
+      <created>1678518368132</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1678518368132</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -83,18 +83,16 @@
           <view class="fold-title-t fold-title-flex-start">
             <text>{{v.冲账单号}}</text>
           </view>
-          <view class="fold-title-flex-start fold-title-con show-dots">
-            <text class="left-con">单据状态:</text>
-            <text class="right-con">{{v.单据状态}}</text>
-          </view>
+
           <view class="multiples">
             <view class="multiple-con">
               <text class="left-con">分店号:</text>
               <text class="right-con">{{v.分店号}}</text>
             </view>
             <view class="multiple-con">
-              <text class="left-con">批发商家:</text>
-              <text class="right-con">{{v.批发商家}}</text>
+              <text class="left-con">单据状态:</text>
+              <text class="right-con" v-if="v.单据状态=='已审核'" style="color:green;">{{v.单据状态}}</text>
+              <text class="right-con" v-else style="color:red;">{{v.单据状态}}</text>
             </view>
           </view>
           <view class="multiples">
@@ -119,11 +117,17 @@
           </view>
           <view class="multiples">
             <view class="multiple-con">
-              <text class="left-con">被冲单号:</text>
-              <text class="right-con">{{v.被冲单号}}</text>
+
             </view>
           </view>
-
+          <view class="fold-title-flex-start fold-title-con show-dots">
+            <text class="left-con">被冲单号:</text>
+            <text class="right-con">{{v.被冲单号}}</text>
+          </view>
+          <view class="fold-title-flex-start fold-title-con show-dots">
+            <text class="left-con">批发商家:</text>
+            <text class="right-con">{{v.批发商家}}</text>
+          </view>
 
         </view>
       </view>

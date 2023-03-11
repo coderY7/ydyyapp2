@@ -546,71 +546,7 @@ console.log(option)
       })
     },
 
-    // 语音模式。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
-    changeSwitch() {
-      if (this.state == "look" || this.state == "check") {
-        return
-      }
-      this.myCollShow = false
-      this.contentShow = true
-      this.yuyinModelArr = this.yuyinArr
-      this.isVoiceMode = true
-      uni.getSystemInfo({
-        success: function(res) {
-          this.x = 0
-          this.y = res.screenHeight - res.statusBarHeight - 94
-        }.bind(this)
-      });
-    },
-    changeVoiceShow() { // 进入普通模式
-      this.yuyinModelArr = []
-      this.isVoiceMode = false
-      uni.getSystemInfo({
-        success: function(res) {
-          this.x = 70
-          this.y = res.screenHeight - 140
-        }.bind(this)
-      });
-    },
-    changeParentValue(obj) {
-      if (obj.nextFunc) {
-        if (obj.searchFunc) {
-          this[obj.nextFunc](obj.val, true)
-        } else { //为类似 switch开关时的 操作
-          this[obj.nextFunc](obj.val)
-        }
-      } else {
-        if (!obj.isSearchCon) {
-          this.uFormModel[obj.id] = obj.val
-        }
-      }
-      if (obj.completeFunc) {
-        this[obj.completeFunc]()
-      }
-      if (obj.next) {
-        this.$refs.goodsVoice.stepFunc(obj.next)
-      }
-    },
-    doing(id, index) {
-      this.doingId = id
-      this.doingindex = index
-    },
-    clickYuyin(fixid, isnext) { //语音 执行顺序跳转
-      for (var i in this.yuyinModelArr) {
-        if (this.yuyinModelArr[i].fixedId == fixid) {
-          if (isnext) { //从下一步开始顺序执行
-            if (i != this.yuyinModelArr.length - 1) {
-              this.$refs.goodsVoice.stepFunc(Number(i) + 1)
-              return
-            }
-          } else { //从本步骤开始顺序执行
-            // this.$set(this.yuyinModelArr[i], "isNext", false)
-            this.$refs.goodsVoice.stepFunc(Number(i))
-            return
-          }
-        }
-      }
-    },
+
 
     //新增单据 单头 函数........................................................
     // 查询商家
@@ -900,7 +836,7 @@ console.log(option)
         this.selectData = arrTemp
         this.searchCode = 0
         if (!isauto) { //语音模式 手动点击调用函数时
-          this.clickYuyin("shoping", true)
+          //this.clickYuyin("shoping", true)
         }
       } else {
         setTimeout(() => {
