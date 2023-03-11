@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cd7a58b4-5dd7-48c0-8013-36ca5802dc4f" name="变更" comment="被冲账单明细">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/function/component/pfczd/bczd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/pfczd/bczd.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/function/component/pfczd/bczdmx.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/pfczd/bczdmx.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/function/component/pfczd/edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/pfczd/edit.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/function/component/pfczd/xsczxd.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/function/component/pfczd/xsczxd.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +44,7 @@
     <setting file="file://$PROJECT_DIR$/pages/function/component/spbjd/edit.vue" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/pages/function/component/pfczd/bczd.vue" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/pages/function/component/pfczd/bczdmx.vue" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pages/function/component/pfczd/edit.vue" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/pages/function/component/cxdlr/cxdcx.vue" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -100,7 +101,8 @@
       <workItem from="1678331752013" duration="15790000" />
       <workItem from="1678361302199" duration="1877000" />
       <workItem from="1678438807970" duration="1142000" />
-      <workItem from="1678498480745" duration="6565000" />
+      <workItem from="1678498480745" duration="7331000" />
+      <workItem from="1678511477172" duration="4346000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1677751239964</created>
@@ -319,7 +321,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678501196055</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="被冲账单明细">
+      <created>1678505406715</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1678505406715</updated>
+    </task>
+    <task id="LOCAL-00033" summary="被冲账单明细">
+      <created>1678505585949</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1678505585949</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

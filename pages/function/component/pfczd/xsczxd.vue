@@ -23,9 +23,9 @@
       <view class="my-collapse">
         <view class="my-collapse-title" @tap="myCollShow=!myCollShow">
           <view class="fold-title">
-            <view class="fold-title-t fold-title-flex">
+            <view class="fold-title-t fold-title-flex" @click="particulars">
               <text>单号:{{uFormTitle.djbh}}</text>
-              <text class="dhliang" @tap.stop="ifpage=false">明细:{{tableData.length}}</text>
+              <text class="dhliang" @tap.stop="ifpage=false" >明细:{{tableData.length}}</text>
             </view>
             <view style="display:flex;justify-content:center;align-items:center;padding:8px;">
               <text v-if="myCollShow">收起</text>
@@ -174,12 +174,14 @@
 
       </view>
     </view>
-    <u-button type="primary" class="my-primary-button sticky-bottom" text="保存" throttleTime="2000"
-              v-show="ifpage&&contentShow" @tap="save">
-    </u-button>
+<!--    <u-button type="primary" class="my-primary-button sticky-bottom" text="保存" throttleTime="2000"-->
+<!--              v-show="ifpage&&contentShow" @tap="save">-->
+<!--    </u-button>-->
 
     <view class="box-content" v-show="!ifpage">
-      <edit :title="editTitleObj" :tableData="tableData" :state="state" @editSave="editSave" ref="editDetail" @delgoods="delgoods">
+      <edit :title="editTitleObj" :tableData="tableData" :state="state"
+            :uFormTitle="uFormTitle"
+            @editSave="editSave" ref="editDetail" @delgoods="delgoods">
       </edit>
     </view>
 
@@ -266,7 +268,7 @@ import {
   GetlistC,
   BsdDosave,
   OrderNew,
-
+  pfczdEdit,
 
   GetlistF,
 } from "@/network/api.js";
@@ -483,6 +485,9 @@ console.log(option)
 
   },
   methods: {
+    particulars(){
+      console.log('999999999999',this.state,this.tableData,)
+    },
     //被冲账单
     bcdh(){
       console.log('跳转被冲账单',this.uFormTitle)
@@ -1085,17 +1090,19 @@ console.log(option)
       let dataes = {
         "access_token": uni.getStorageSync("access_token"),
         "djbh": this.uFormTitle.djbh,
-        "bsck": this.uFormTitle.ckbh.split("-")[0],
-        "bslx": this.uFormTitle.tklx.split("-")[0],
-        "bsfd":this.uFormTitle.bsfd,
         "fdbh": uni.getStorageSync("fdbh"),
         "remark": this.uFormTitle.remarks,
         "userid": uni.getStorageSync("userid"),
         "vtype": state,
         "list": this.uploadarr,
+        chck:this.uFormTitle.chck,
+        czyy:'1.录入错误',
+        pfdbh:this.uFormTitle.pfdbh,
+        pfkh:this.uFormTitle.pfkh,
+        thlx:this.uFormTitle.thlx,
       }
       console.log("state==" + state + "; 保存商品 dosave dataes", dataes)
-      BsdDosave(dataes).then((res) => {
+      pfczdEdit(dataes).then((res) => {
         console.log("state==" + state + "; 保存商品 dosave res", res)
         if (state == "EDIT") {
           if (res.error_code == 0) {

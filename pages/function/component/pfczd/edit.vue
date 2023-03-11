@@ -26,29 +26,30 @@
               <text>{{editForm.gg}}</text>
             </view>
           </view>
-        </view>
-        <u-form-item label="报损数量" :labelWidth="74" prop="bssl">
-          <u-input placeholder="请输入报损数量" type="number" v-model="editForm.bssl">
-          </u-input>
-        </u-form-item>
-        <u-form-item label="报损价格" :labelWidth="74" prop="nsjg">
-          <u-input placeholder="请输入报损价格" type="number" v-model="editForm.nsjg">
-          </u-input>
-        </u-form-item>
-        <u-form-item label="是否赠品" :labelWidth="74" prop="splx">
-          <xuanSwitch :switchList="switchList" :defaultSwitch="editForm.splx" @change="switChange"></xuanSwitch>
-        </u-form-item>
-      </u-form>
-      <view class="form-card">
-        <view style="display:flex;justify-content:space-between;">
-          <text>供价类型</text>
-        </view>
-        <view>
-          <view class="radio-view">
-            <view class="radio-text" v-for="(v, i) in lxlist" :class="{lxactive:editForm.jgcxbz==v.sjcxlxid}" @tap="formMoreChange(v.sjcxlxid)">{{v.lxmc}}</view>
+
+          <view class="shopTishi">
+            <view class="shopTishi-view-half" v-if="editForm.dw">
+              <text class="left-con">销售数量:</text>
+              <text>{{editForm.cqsl}}</text>
+            </view>
+            <view class="shopTishi-view-half" v-if="editForm.gg">
+              <text class="left-con">销售价格:</text>
+              <text>{{editForm.cqjg}}</text>
+            </view>
           </view>
+
         </view>
-      </view>
+        <u-form-item label="冲帐数量" :labelWidth="74" prop="czsl">
+          <u-input placeholder="请输入冲帐数量" type="number" v-model="editForm.czsl">
+          </u-input>
+        </u-form-item>
+        <u-form-item label="冲后价格" :labelWidth="74" prop="chjg">
+          <u-input placeholder="请输入冲后价格" type="number" v-model="editForm.chjg">
+          </u-input>
+        </u-form-item>
+
+      </u-form>
+
       <view class="btns" v-if="stateDetail">
         <u-button type="primary" class="my-primary-button" :plain="true" text="取消" throttleTime="2000"
                   @tap="cancelDetail"></u-button>
@@ -63,7 +64,7 @@
           <text>{{title.djbh}}</text>
         </view>
       </view>
-      <view class="fold-content" v-for="(item,index) in tableData">
+      <view class="fold-content" v-for="(item,index) in tableData" @click="test">
         <view class="card-flex-wrap">
           <view class="card-row">{{item.spmc}}</view>
           <view>
@@ -83,22 +84,22 @@
         </view>
         <view class="multiples">
           <view class="multiple-con view-flex">
-            <text class="left-con">仓库:</text>
-            <text class="right-con">{{item.ckmc}}</text>
+            <text class="left-con">销售数量:</text>
+            <text class="right-con">{{item.cqsl}}</text>
           </view>
           <view class="multiple-con view-flex">
-            <text class="left-con">分店:</text>
-            <text class="right-con">{{item.fdmc}}</text>
+            <text class="left-con">销售价格:</text>
+            <text class="right-con">{{item.cqjg}}</text>
           </view>
         </view>
         <view class="multiples">
           <view class="multiple-con view-flex">
-            <text class="left-con">数量:</text>
-            <text class="right-con">{{item.bssl}}</text>
+            <text class="left-con">冲账数量:</text>
+            <text class="right-con">{{item.czsl}}</text>
           </view>
           <view class="multiple-con view-flex">
-            <text class="left-con">价格:</text>
-            <text class="right-con">￥{{item.nsjg}}</text>
+            <text class="left-con">冲后价格:</text>
+            <text class="right-con">￥{{item.chjg}}</text>
           </view>
         </view>
       </view>
@@ -140,6 +141,12 @@ export default {
         return ""
       }
     },
+    uFormTitle: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    },
   },
   components: {
     xuanSwitch
@@ -153,33 +160,35 @@ export default {
         spmc: "",
         dw: "",
         gg: "",
-        bssl: "",
-        nsjg: "",
+        cqsl:'',
+        cqjg:'',
+        czsl: "",
+        chjg: "",
         splx: false,//赠送商品
         jgcxbz: "",//供价类型
       },
       editRules:{
-        "bssl": [{
+        "czsl": [{
           type: "number",
           required: true,
-          message: "请填写报损数量",
+          message: "请填写冲账数量",
           trigger: ["blur", "change"]
         },
           {
             asyncValidator: (rule, value, callback) => {
-              let reg=/^\d+(\.\d+)?$/
+              let reg= /-\d+/g
               if(reg.test(value)){
                 callback();
               }else{
-                callback(new Error('请输入非负数'));
+                callback(new Error('请输入负整数'));
               }
             }
           }
         ],
-        "nsjg": [{
+        "chjg": [{
           type: "number",
           required: true,
-          message: "请填写报损价格",
+          message: "请填写冲后价格",
           trigger: ["blur", "change"]
         },
           {
@@ -202,11 +211,14 @@ export default {
     }
   },
   mounted() {
-    console.log("edit tableData",this.tableData)
-    console.log("edit this.title",this.title)
-    this.formMore("",true)
+    // console.log("edit tableData",this.tableData)
+    // console.log("edit this.title",this.title)
+    // this.formMore("",true)
   },
   methods: {
+    test(){
+      console.log(this.state,this.tableData)
+    },
     // 查询 特供（供价类型）
     formMore(lx,isAll) {
       let dataes={
@@ -245,13 +257,15 @@ export default {
       this.serchGoods(row.spbm)
       // this.editForm.jgcxbz = row.jgcxbz
       this.editForm.splx = row.splx=="T"?true:false
-      this.editForm.bssl = row.bssl
-      this.editForm.nsjg = row.nsjg
-      this.formMore(row.jgcxbz,false)
+      this.editForm.czsl = row.czsl
+      this.editForm.chjg = row.chjg
+      this.editForm.cqsl = row.cqsl
+      this.editForm.cqjg = row.cqjg
+      //this.formMore(row.jgcxbz,false)
       // this.$set(this.tableData[index], "splx", [this.tableData[index].splx])
       this.stateDetail = true
       this.tableIndex = index
-      console.log("编辑商品 row",row)
+      console.log("编辑商品 row",row,this.uFormTitle)
     },
     cancelDetail() {
       this.editForm.spbm= ""
@@ -261,8 +275,8 @@ export default {
       this.editForm.gg= ""
       this.editForm.jgcxbz= ""//供价类型
       this.editForm.splx= false//赠送商品
-      this.editForm.bssl= ""
-      this.editForm.nsjg= ""
+      this.editForm.czsl= ""
+      this.editForm.chjg= ""
       this.stateDetail = false
       this.tableIndex = -1
     },
@@ -274,17 +288,18 @@ export default {
     editDetailSave() {
       this.$refs.uForm.validate().then(resf => {
         this.uploadarr = []
-        let xx = Number(this.tableData[this.tableIndex].rq.split("T")[0].split("-")[2]) + this.serchGoodsData.bzqts
         console.log('2121',this.editForm,this.tableData[this.tableIndex])
         this.uploadarr.push({
-          "bsjg":this.editForm.nsjg,
-          "bssl":this.editForm.bssl,
-          "spmc":this.tableData[this.tableIndex].spmc,
-          "guid": this.tableData[this.tableIndex].recordid,
-          "spbm": this.tableData[this.tableIndex].spbm,
-          "spsmm": this.tableData[this.tableIndex].spsmm
+          czhjg:this.editForm.chjg,
+          czhsl:this.editForm.czsl,
+          czqjg:this.editForm.cqjg,
+          czqsl:this.editForm.cqsl,
+          pfdhh:this.tableData[this.tableIndex].pfdhh,
+          spmc:this.tableData[this.tableIndex].spmc,
+          spbm: this.tableData[this.tableIndex].spbm,
+          spsmm: this.tableData[this.tableIndex].spsmm
         })
-        // console.log("保存商品 editDetailSave this.uploadarr",this.uploadarr)
+         console.log("保存商品this.uploadarr",this.uploadarr)
         this.$emit("editSave",this.uploadarr)
       }).catch(errors => {
 
