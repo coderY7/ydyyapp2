@@ -183,12 +183,45 @@ console.log(test)
         userid:uni.getStorageSync('userid'),
         vtype:'CHK'
       }
+      let dataADD={
+        access_token:uni.getStorageSync('access_token'),
+        chck:this.tablist.chck,
+        czyy:'1.录入错误',
+        djbh:this.tablist.djbh,
+        fdbh:uni.getStorageSync('fdbh'),
+        list:test,
+        pfdbh:this.tablist.pfdbh,
+        pfkh:this.tablist.pfkh,
+        remark:'',
+        thlx:this.tablist.thlx,
+        userid:uni.getStorageSync('userid'),
+        vtype:'ADD'
+      }
       pfczdEdit(data).then((res)=>{
         console.log('提交',res)
         if(res.error_code==0){
           uni.redirectTo({
             url: `/pages/function/component/pfczd/xsczxd?pfdbh=${this.tablist.pfdbh}&bczdmx=true&djbh=${this.tablist.djbh}&state=add`
           });
+        }
+        if(res.error_code=='2'){
+          uni.showModal({
+            title: '提示',
+            content:res.error_data[0].message,
+            success:  (res)=> {
+              if (res.confirm) {
+                pfczdEdit(dataADD).then((add)=>{
+                  uni.redirectTo({
+                    url: `/pages/function/component/pfczd/xsczxd?pfdbh=${this.tablist.pfdbh}&bczdmx=true&djbh=${this.tablist.djbh}&state=add`
+                  });
+                })
+                console.log('用户点击确定');
+              } else if (res.cancel) {
+                console.log('用户点击取消');
+              }
+            }
+          });
+
         }
 
       })

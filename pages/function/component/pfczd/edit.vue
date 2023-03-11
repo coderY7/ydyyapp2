@@ -118,7 +118,7 @@ import dayjs from "dayjs";
 import {
   Basic,
   Search,
-  BsdDelLine
+pfczdLine
 } from "@/network/api.js";
 import xuanSwitch from "@/components/xuan-switch/xuan-switch.vue";
 export default {
@@ -314,19 +314,19 @@ export default {
           if (resm.confirm) {
             let dataes={
               "access_token": uni.getStorageSync("access_token"),
-              "djbh": row.bsdbh,
+              "djbh": row.pfczdh,
               "fdbh": uni.getStorageSync("fdbh"),
               "userid": uni.getStorageSync("userid"),
               "username": uni.getStorageSync("dlmc"),
               "list": [{
-                "guid": row.recordid,
+                "pfdhh": row.pfdhh,
                 "spbm": row.spbm,
                 "spmc": row.spmc,
                 "spsmm": row.spsmm
               }]
             }
             console.log("删除商品 dataes",dataes)
-            BsdDelLine(dataes).then((res) => {
+            pfczdLine(dataes).then((res) => {
               if (res.error_code == 0) {
                 // this.$parent.getList()
                 this.$emit("delgoods")

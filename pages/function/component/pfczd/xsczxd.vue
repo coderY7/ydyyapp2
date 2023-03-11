@@ -261,8 +261,8 @@ import dayjs from "dayjs";
 import {
   QueryHT,
   Basic,
-  BsdCheck,
-  BsdDelete,
+  pfczdCheck,
+  pfczdDelete,
   Search,
   Sppc,
   GetlistC,
@@ -445,16 +445,15 @@ export default {
       }.bind(this)
     });
     this.uFormTitle.djbh = option.djbh
-    this.uFormTitle.pfdbh = option.pfdbh
+    if(option.pfdbh){
+      this.uFormTitle.pfdbh = option.pfdbh
+    }
 console.log(option)
     if(option.bczdmx){
       this.uFormTitle.djbh = option.djbh
       this.uFormTitle.pfdbh = option.pfdbh
       this.getList()
     }
-
-    //this.uFormTitle.bsfd = option.bsfd
-
     this.state = option.state
     let sjVal = ""
     let ckVal = ""
@@ -752,10 +751,9 @@ console.log(option)
               "djbh": this.uFormTitle.djbh,
               "isyxcheck": "F",
               "remark": this.uFormTitle.remarks,
-
               "username": uni.getStorageSync("dlmc"),
             }
-            BsdCheck(dataes).then((res) => {
+            pfczdCheck(dataes).then((res) => {
               console.log("报审核 res", res)
               if (res.error_code == 0) {
                 this.$refs.uToast.show({
@@ -791,7 +789,7 @@ console.log(option)
               "djbh": this.uFormTitle.djbh
             }
             console.log("删除单据 dataes", dataes)
-            BsdDelete(dataes).then((res) => {
+            pfczdDelete(dataes).then((res) => {
               console.log("删除单据 res", res)
               if (res.error_code == 0) {
                 this.$refs.uToast.show({
@@ -799,6 +797,8 @@ console.log(option)
                   message: "删除成功"
                 })
                 this.uFormTitle.djbh = ""
+                this.uFormTitle.pfdbh = ""
+
                 this.tableData = []
                 this.state = "check"
               } else {
